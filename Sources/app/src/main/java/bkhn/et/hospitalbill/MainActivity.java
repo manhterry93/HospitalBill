@@ -1,4 +1,4 @@
-package hospitalbill.bkhn.et.hospitalbill;
+package bkhn.et.hospitalbill;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

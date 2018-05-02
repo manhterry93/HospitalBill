@@ -1,4 +1,4 @@
-package hospitalbill.bkhn.et.hospitalbill;
+package bkhn.et.hospitalbill;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

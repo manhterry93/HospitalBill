@@ -1,4 +1,4 @@
-package hospitalbill.bkhn.et.hospitalbill;
+package bkhn.et.hospitalbill;
 
 import org.junit.Test;
 
