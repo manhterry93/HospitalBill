@@ -16,6 +16,7 @@ import bkhn.et.hospitalbill.base.IBaseContract.IActionCallback;
 import bkhn.et.hospitalbill.utils.NetworkUtils;
 
 import static bkhn.et.hospitalbill.utils.AppConstants.TAGG;
+import static bkhn.et.hospitalbill.utils.AppUtils.isNotNull;
 
 /**
  * Created by PL_itto on 5/2/2018.
@@ -23,7 +24,7 @@ import static bkhn.et.hospitalbill.utils.AppConstants.TAGG;
 
 public abstract class BaseActivity extends AppCompatActivity implements IBaseContract.IBaseView {
     private static final String TAG = TAGG + BaseActivity.class.getSimpleName();
-    private static final int PERMISISON_REQUEST_CODE = 100;
+    private static final int PERMISSION_REQUEST_CODE = 100;
 
     public abstract Fragment getFragment();
 
@@ -52,7 +53,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseCon
 
     @Override
     public void showMessage(int resId) {
-        Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(resId), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -66,16 +67,27 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseCon
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    protected void requestPermission(@NonNull String[] permission, @NonNull IActionCallback callback) {
+    protected void requestPermissions(@NonNull String[] permission, @NonNull IActionCallback callback) {
         mIActionCallback = callback;
-        requestPermissions(permission, PERMISISON_REQUEST_CODE);
+        requestPermissions(permission, PERMISSION_REQUEST_CODE);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == PERMISISON_REQUEST_CODE) {
+        if (requestCode == PERMISSION_REQUEST_CODE) {
             // TODO: will be implemented later
+            boolean granted = true;
+            for (int result : grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    granted = false;
+                    break;
+                }
+            }
+            if (granted && isNotNull(mIActionCallback)) {
+                mIActionCallback.onSuccess();
+                mIActionCallback = null;
+            }
         }
     }
 
