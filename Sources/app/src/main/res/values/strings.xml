@@ -1,3 +1,9 @@
 <resources>
+    <!--Default-->
+    <string name="version">Ver 1.0</string>
     <string name="app_name">HospitalBill</string>
+
+    <!--Splash-->
+    <string name="splash_label">Hệ thống quản lý thu ngân bệnh viên</string>
+    <string name="splash_loading">Đang tải dữ liệu...</string>
 </resources>

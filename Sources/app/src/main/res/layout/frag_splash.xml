@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgr_color">
+    <!--Progress-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal">
+
+        <ProgressBar
+            android:id="@+id/splash_progress"
+            android:layout_width="@dimen/splash_progress_size"
+            android:layout_height="@dimen/splash_progress_size"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/splash_progress"
+            android:gravity="center_vertical"
+            android:text="@string/splash_loading"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/splash_progress_text_size"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/splash_margin_horizontal"
+        android:layout_marginRight="@dimen/splash_margin_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/splash_label"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/splash_label_text_size"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/version"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/splash_ver_text_size"/>
+    </LinearLayout>
+</RelativeLayout>
