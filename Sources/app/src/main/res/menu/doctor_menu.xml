@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/doctor_user"
+        app:showAsAction="withText"
+        android:icon="@drawable/ic_user"
+        android:title="@string/doctor_tab_user"/>
+    <item
+        android:id="@+id/doctor_search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="withText"
+        android:title="@string/doctor_tab_search"/>
+    <item
+        android:id="@+id/doctor_record"
+        android:icon="@drawable/ic_record"
+        app:showAsAction="withText"
+        android:title="@string/doctor_tab_record"/>
+    <item
+        android:id="@+id/doctor_setting"
+        app:showAsAction="withText"
+        android:icon="@drawable/ic_setting"
+        android:title="@string/doctor_tab_setting"/>
+</menu>

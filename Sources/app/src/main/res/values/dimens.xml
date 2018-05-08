@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!--Splash-->
     <dimen name="splash_margin_horizontal">30dp</dimen>
-    <dimen name="splash_label_text_size">25dp</dimen>
+    <dimen name="splash_label_text_size">27dp</dimen>
     <dimen name="splash_ver_text_size">13dp</dimen>
     <dimen name="splash_progress_text_size">13dp</dimen>
     <dimen name="splash_progress_size">25dp</dimen>
+    
+    <!--Login-->
+    <dimen name="login_label_margin_bottom">10dp</dimen>
+    <dimen name="login_padding_horizontal">15dp</dimen>
+    <dimen name="login_label_text_size">24dp</dimen>
+    <dimen name="login_content_layout_margin_vertical">40dp</dimen>
+    <dimen name="login_content_layout_margin_horizontal">20dp</dimen>
+    <dimen name="login_content_header_text_size">15dp</dimen>
+    <dimen name="login_content_header_margin_bottom">5dp</dimen>
+    <dimen name="login_content_text_size">16dp</dimen>
+    <dimen name="login_content_input_padding_horizontal">10dp</dimen>
+    <dimen name="login_content_input_padding_vertical">5dp</dimen>
+    <dimen name="login_content_margin_bottom">15dp</dimen>
+
+    <!--Doctor.User-->
+    <dimen name="doctor_avatar_size">80dp</dimen>
+    <dimen name="doctor_id_text_size">13dp</dimen>
+    <dimen name="doctor_name_text_size">15dp</dimen>
+    <dimen name="doctor_birth_text_size">13dp</dimen>
+    <dimen name="doctor_padding_horizontal">15dp</dimen>
+    <dimen name="doctor_header_text_size">15dp</dimen>
+    <dimen name="doctor_content_text_size">17dp</dimen>
+    <dimen name="doctor_header_margin_horizontal">10dp</dimen>
+    <dimen name="doctor_content_margin_horizontal">25dp</dimen>
 </resources>

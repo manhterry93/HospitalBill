@@ -26,7 +26,7 @@
             android:layout_toRightOf="@id/splash_progress"
             android:gravity="center_vertical"
             android:text="@string/splash_loading"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/color_white"
             android:textSize="@dimen/splash_progress_text_size"/>
     </RelativeLayout>
 
@@ -45,7 +45,7 @@
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
             android:text="@string/splash_label"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/color_white"
             android:textSize="@dimen/splash_label_text_size"
             android:textStyle="bold"/>
 
@@ -55,7 +55,7 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:text="@string/version"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/color_white"
             android:textSize="@dimen/splash_ver_text_size"/>
     </LinearLayout>
 </RelativeLayout>

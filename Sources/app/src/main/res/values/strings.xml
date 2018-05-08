@@ -6,4 +6,20 @@
     <!--Splash-->
     <string name="splash_label">Hệ thống quản lý thu ngân bệnh viên</string>
     <string name="splash_loading">Đang tải dữ liệu...</string>
+
+    <!--Login-->
+    <string name="login_label">Đăng nhập để tiếp tục:</string>
+    <string name="login_username">Tên đăng nhập:</string>
+    <string name="login_password">Mật khẩu</string>
+    <string name="login_perform">Đăng nhập</string>
+
+    <!--Doctor-->
+    <string name="doctor_tab_user">Tài khoản</string>
+    <string name="doctor_tab_search">Tìm kiếm</string>
+    <string name="doctor_tab_record">Bệnh án</string>
+    <string name="doctor_tab_setting">Cài đặt</string>
+    <string name="doctor_header_position">Chức vụ:</string>
+    <string name="doctor_header_part">Khoa/Viện:</string>
+    <string name="doctor_header_session">Ca trực:</string>
+    <string name="doctor_header_phone">SĐT:</string>
 </resources>

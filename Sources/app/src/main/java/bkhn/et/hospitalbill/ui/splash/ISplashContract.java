@@ -9,7 +9,7 @@ import bkhn.et.hospitalbill.base.IBaseContract.IBaseView;
 
 public interface ISplashContract {
     interface ISplashView extends IBaseView {
-
+        void openLoginActivity();
     }
 
     interface ISplashPresenter<V extends ISplashView> extends IBasePresenter<V> {

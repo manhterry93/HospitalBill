@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import bkhn.et.hospitalbill.utils.NetworkUtils;
+
 import static bkhn.et.hospitalbill.utils.AppConstants.TAGG;
 import static bkhn.et.hospitalbill.utils.AppUtils.isNotNull;
 
@@ -66,5 +68,10 @@ public abstract class BaseFragment extends Fragment implements IBaseContract.IBa
     @Override
     public boolean isPermissionGranted(String[] permissions) {
         return mActivity.isPermissionGranted(permissions);
+    }
+
+    @Override
+    public boolean isNetworkConnected() {
+        return NetworkUtils.isNetworkConnected(mContext);
     }
 }
