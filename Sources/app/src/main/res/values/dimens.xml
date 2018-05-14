@@ -31,4 +31,19 @@
     <dimen name="doctor_content_text_size">17dp</dimen>
     <dimen name="doctor_header_margin_horizontal">10dp</dimen>
     <dimen name="doctor_content_margin_horizontal">25dp</dimen>
+
+    <!--Illness Search-->
+    <dimen name="search_filter_icon_size">24dp</dimen>
+    <dimen name="search_margin_bottom">15dp</dimen>
+    <dimen name="search_padding_horizontal">10dp</dimen>
+    <dimen name="search_btn_width">70dp</dimen>
+    <dimen name="search_btn_height">50dp</dimen>
+    <dimen name="search_btn_text_size">15dp</dimen>
+    <dimen name="search_advance_text_size">14dp</dimen>
+    
+    <!--Record-->
+    <dimen name="record_header_text_size">13dp</dimen>
+    <dimen name="record_text_size">14dp</dimen>
+    <dimen name="record_item_arrow_size">17dp</dimen>
+
 </resources>

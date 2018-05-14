@@ -1,9 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgr_color"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:paddingLeft="@dimen/search_padding_horizontal"
+    android:paddingRight="@dimen/search_padding_horizontal">
+    <!--SearchView-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/search_margin_bottom"
+        android:background="@drawable/rounded_white_shape"
+        android:padding="5dp">
 
+        <ImageView
+            android:id="@+id/search_filter_icon"
+            android:layout_width="@dimen/search_filter_icon_size"
+            android:layout_height="@dimen/search_filter_icon_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_filter"/>
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/search_filter_icon"
+            android:background="@color/transparent"
+            android:textColor="@color/color_grey_light"/>
+    </RelativeLayout>
+
+    <!--Advance Search-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_stroke_shape"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/Search.Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/search_header_advance"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_width="@dimen/search_btn_width"
+                android:layout_height="@dimen/search_btn_height"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:backgroundTint="@color/color_white"
+                android:gravity="center"
+                android:text="@string/search_btn_title"
+                android:textAllCaps="false"
+                android:textColor="@color/color_grey"
+                android:textSize="@dimen/search_btn_text_size"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/search_btn"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/DefaultText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:text="@string/search_department"
+                        android:textSize="@dimen/search_advance_text_size"/>
+
+                    <TextView
+                        android:id="@+id/search_department"
+                        style="@style/DefaultText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2.5"
+                        android:background="@drawable/rounded_white_shape"
+                        android:gravity="center"
+                        android:textSize="@dimen/search_advance_text_size"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/DefaultText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:text="@string/search_sub_department"
+                        android:textSize="@dimen/search_advance_text_size"/>
+
+                    <TextView
+                        android:id="@+id/search_sub_department"
+                        style="@style/DefaultText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2.5"
+                        android:background="@drawable/rounded_white_shape"
+                        android:gravity="center"
+                        android:textSize="@dimen/search_advance_text_size"/>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        style="@style/Search.Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/search_result"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_result_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

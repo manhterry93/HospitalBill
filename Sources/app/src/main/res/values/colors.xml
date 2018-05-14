@@ -6,6 +6,7 @@
 
     <!--Default Color-->
     <color name="bgr_color">#333333</color>
+    <color name="transparent">#00000000</color>
     <color name="color_grey">#333333</color>
     <color name="color_black">#000000</color>
     <color name="color_white">#ffffff</color>

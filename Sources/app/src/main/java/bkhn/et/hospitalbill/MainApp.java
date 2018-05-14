@@ -2,6 +2,8 @@ package bkhn.et.hospitalbill;
 
 import android.app.Application;
 
+import com.firebase.client.Firebase;
+
 import bkhn.et.hospitalbill.di.component.AppComponent;
 import bkhn.et.hospitalbill.di.component.DaggerAppComponent;
 import bkhn.et.hospitalbill.di.module.AppModule;
@@ -20,6 +22,7 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
         initInject();
+        Firebase.setAndroidContext(this);
     }
 
     private void initInject() {

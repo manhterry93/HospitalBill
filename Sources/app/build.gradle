@@ -36,9 +36,15 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:2.11"
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'javax.inject:javax.inject:1'
+
+    //Firebase
+    compile 'com.google.firebase:firebase-core:10.0.1'
+    compile 'com.google.firebase:firebase-database:10.0.1'
+    compile 'com.google.firebase:firebase-auth:10.0.1'
+    compile 'com.firebase:firebase-client-android:2.3.1'
 }
 
-
+apply plugin: 'com.google.gms.google-services'
 
 
 

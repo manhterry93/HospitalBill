@@ -1,10 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bkhn.et.hospitalbill.ui.doctor.record.view.RecordActivity">
+    android:background="@color/bgr_color"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/round_stroke_shape"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/record_filter"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/record_header_text_size"/>
+
+            <Spinner
+                android:id="@+id/record_filter_spin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/rounded_white_shape"
+                android:entries="@array/record_filter_list"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"/>
+
+            <EditText
+                android:id="@+id/record_filter_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/rounded_white_shape"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:textSize="@dimen/record_text_size"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/record_filter_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/color_white"
+            android:text="@string/record_filter_perform"
+            android:textAllCaps="false"
+            android:textSize="@dimen/record_text_size"/>
+    </LinearLayout>
+
+    <include layout="@layout/record_header"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/record_result_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

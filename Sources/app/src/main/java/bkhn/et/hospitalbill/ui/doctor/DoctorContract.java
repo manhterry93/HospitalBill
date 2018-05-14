@@ -2,6 +2,7 @@ package bkhn.et.hospitalbill.ui.doctor;
 
 import bkhn.et.hospitalbill.base.IBaseContract.IBasePresenter;
 import bkhn.et.hospitalbill.base.IBaseContract.IBaseView;
+import bkhn.et.hospitalbill.data.model.UserModel;
 
 /**
  * Created by PL_itto on 5/8/2018.
@@ -14,11 +15,13 @@ public interface DoctorContract {
 
     //    Doctor User Screen
     interface IDoctorUserView extends IBaseView {
+        void requestGetUserDetail();
 
+        void updateUserDetail(UserModel model);
     }
 
     interface IDoctorUserPresenter<V extends IDoctorUserView> extends IBasePresenter<V> {
-
+        void getUserDetail();
     }
 
     //    Search screen

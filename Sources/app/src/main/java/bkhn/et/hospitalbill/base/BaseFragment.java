@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import bkhn.et.hospitalbill.MainApp;
+import bkhn.et.hospitalbill.di.component.DaggerFragmentComponent;
+import bkhn.et.hospitalbill.di.component.FragmentComponent;
+import bkhn.et.hospitalbill.di.module.FragmentModule;
 import bkhn.et.hospitalbill.utils.NetworkUtils;
 
 import static bkhn.et.hospitalbill.utils.AppConstants.TAGG;
@@ -25,7 +29,7 @@ public abstract class BaseFragment extends Fragment implements IBaseContract.IBa
     protected Context mContext;
     protected View mView;
     protected BaseActivity mActivity;
-
+    private FragmentComponent mFragmentComponent;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,15 @@ public abstract class BaseFragment extends Fragment implements IBaseContract.IBa
         Toast.makeText(mContext, getResources().getString(resId), Toast.LENGTH_SHORT).show();
     }
 
+    protected FragmentComponent getFragmentComponent(){
+        if(!isNotNull(mFragmentComponent)){
+            mFragmentComponent= DaggerFragmentComponent.builder()
+                    .fragmentModule(new FragmentModule(this))
+                    .appComponent(((MainApp)mActivity.getApplication()).getAppComponent())
+                    .build();
+        }
+        return mFragmentComponent;
+    }
     @Override
     public void showMessage(String message) {
         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();

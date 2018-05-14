@@ -35,19 +35,39 @@
         <item name="itemIconTint">@color/color_white</item>
     </style>
 
-    <style name="DoctorText">
+    <style name="DefaultText">
         <item name="android:textColor">@color/color_white</item>
         <item name="android:gravity">center_vertical|left</item>
     </style>
 
-    <style name="Doctor.Header" parent="DoctorText">
+    <style name="Doctor.Header" parent="DefaultText">
         <item name="android:layout_marginLeft">@dimen/doctor_header_margin_horizontal</item>
         <item name="android:layout_marginRight">@dimen/doctor_header_margin_horizontal</item>
         <item name="android:textSize">@dimen/doctor_header_text_size</item>
     </style>
-    <style name="Doctor.Content" parent="DoctorText">
+
+    <style name="Doctor.Content" parent="DefaultText">
         <item name="android:layout_marginLeft">@dimen/doctor_content_margin_horizontal</item>
         <item name="android:layout_marginRight">@dimen/doctor_content_margin_horizontal</item>
         <item name="android:textSize">@dimen/doctor_content_text_size</item>
+    </style>
+
+    <style name="Search.Header" parent="DefaultText">
+        <item name="android:textSize">13dp</item>
+    </style>
+
+    <style name="Record.HeaderItem" parent="AppTheme">
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Record.ItemText" parent="DefaultText">
+        <item name="android:textSize">@dimen/record_text_size</item>
     </style>
 </resources>

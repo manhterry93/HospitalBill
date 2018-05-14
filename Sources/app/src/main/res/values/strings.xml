@@ -12,7 +12,10 @@
     <string name="login_username">Tên đăng nhập:</string>
     <string name="login_password">Mật khẩu</string>
     <string name="login_perform">Đăng nhập</string>
-
+    <string name="login_user_empty">Tên đăng nhập không được để trống!</string>
+    <string name="login_pass_empty">Mật khẩu không được để trống!</string>
+    <string name="login_success">Đăng nhập thành công!</string>
+    <string name="login_fail">Đăng nhập thất bại!</string>
     <!--Doctor-->
     <string name="doctor_tab_user">Tài khoản</string>
     <string name="doctor_tab_search">Tìm kiếm</string>
@@ -22,4 +25,29 @@
     <string name="doctor_header_part">Khoa/Viện:</string>
     <string name="doctor_header_session">Ca trực:</string>
     <string name="doctor_header_phone">SĐT:</string>
+
+    <!--Search-->
+    <string name="search_header_advance">Tìm kiếm nâng cao</string>
+    <string name="search_department">Khoa:</string>
+    <string name="search_sub_department">Bệnh lý:</string>
+    <string name="search_btn_title">Duyệt</string>
+    <string name="search_result">Kết quả tìm kiếm:</string>
+
+    <!--Record-->
+    <string name="record_filter">Lọc theo:</string>
+    <string name="record_filter_all">Tất cả</string>
+    <string name="record_filter_id">Id</string>
+    <string name="record_filter_doctor">Bác sĩ</string>
+    <string name="record_filter_perform">Duyệt</string>
+    <string-array name="record_filter_list">
+        <item>@string/record_filter_all</item>
+        <item>@string/record_filter_id</item>
+        <item>@string/record_filter_doctor</item>
+    </string-array>
+
+    <string name="record_header_id">Id</string>
+    <string name="record_header_time">Thời gian</string>
+    <string name="record_header_doctor">Bác sĩ</string>
+    <string name="record_header_note">Chú thích</string>
+
 </resources>
