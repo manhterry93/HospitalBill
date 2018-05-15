@@ -16,4 +16,8 @@ public interface IRemoteProvider {
     void login(String email, String password, OnCompleteListener listener);
 
     void logout();
+
+    void loadDepartmentList(ValueEventListener listener);
+
+    void loadProblemList(ValueEventListener listener);
 }

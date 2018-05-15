@@ -12,16 +12,6 @@ public class AppConstants {
         public static final int TYPE_STAFF = 102;
     }
 
-    public static final class User {
-        public static final String AVATAR = "avatar";
-        public static final String BIRTH = "birth";
-        public static final String DEPARTMENT_ID = "departmentId";
-        public static final String DEPARTMENT_NAME = "departmentName";
-        public static final String EMAIL = "email";
-        public static final String NAME = "name";
-        public static final String PHONE = "phone";
-        public static final String JOB_ID = "jobId";
-    }
 
     public static final class Doctor {
         public static final int TAB_COUNT = 4;

@@ -1,8 +1,6 @@
-package bkhn.et.hospitalbill.ui.doctor.search.view;
+package bkhn.et.hospitalbill.ui.doctor.search;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import bkhn.et.hospitalbill.base.BaseActivity;
 

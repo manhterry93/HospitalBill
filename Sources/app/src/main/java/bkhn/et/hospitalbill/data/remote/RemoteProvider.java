@@ -21,7 +21,8 @@ import static bkhn.et.hospitalbill.utils.AppConstants.TAGG;
 public class RemoteProvider implements IRemoteProvider {
     private static final String TAG = TAGG + RemoteProvider.class.getSimpleName();
     FirebaseAuth mFirebaseAuth;
-
+    private static final String DEPARTMENT_TABLE = "Department";
+    private static final String PROBLEM_TABLE = "Data";
 
     @Inject
     public RemoteProvider() {
@@ -49,5 +50,19 @@ public class RemoteProvider implements IRemoteProvider {
     @Override
     public void logout() {
 
+    }
+
+    @Override
+    public void loadDepartmentList(ValueEventListener listener) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference(DEPARTMENT_TABLE);
+        reference.addListenerForSingleValueEvent(listener);
+    }
+
+    @Override
+    public void loadProblemList(ValueEventListener listener) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference(PROBLEM_TABLE);
+        reference.addListenerForSingleValueEvent(listener);
     }
 }

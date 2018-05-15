@@ -12,7 +12,7 @@ import bkhn.et.hospitalbill.R;
 import bkhn.et.hospitalbill.base.BaseFragment;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract;
 import bkhn.et.hospitalbill.ui.doctor.record.view.RecordFragment;
-import bkhn.et.hospitalbill.ui.doctor.search.view.SearchFragment;
+import bkhn.et.hospitalbill.ui.doctor.search.SearchFragment;
 import bkhn.et.hospitalbill.ui.doctor.setting.view.SettingFragment;
 import bkhn.et.hospitalbill.ui.doctor.user.DoctorUserFragment;
 import bkhn.et.hospitalbill.utils.AppConstants.Doctor;

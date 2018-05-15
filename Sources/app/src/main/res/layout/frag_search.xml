@@ -16,20 +16,22 @@
         android:padding="5dp">
 
         <ImageView
-            android:id="@+id/search_filter_icon"
+            android:id="@+id/search_clear_input"
             android:layout_width="@dimen/search_filter_icon_size"
             android:layout_height="@dimen/search_filter_icon_size"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/ic_filter"/>
+            android:visibility="invisible"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_clear"/>
 
         <EditText
             android:id="@+id/search_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/search_filter_icon"
+            android:layout_toLeftOf="@id/search_clear_input"
             android:background="@color/transparent"
             android:textColor="@color/color_grey_light"/>
     </RelativeLayout>
@@ -56,7 +58,7 @@
             <Button
                 android:id="@+id/search_btn"
                 android:layout_width="@dimen/search_btn_width"
-                android:layout_height="@dimen/search_btn_height"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/color_white"
@@ -73,11 +75,13 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
                 android:layout_toLeftOf="@id/search_btn"
+                android:gravity="center_vertical"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:orientation="horizontal">
@@ -91,14 +95,16 @@
                         android:text="@string/search_department"
                         android:textSize="@dimen/search_advance_text_size"/>
 
-                    <TextView
+                    <Spinner
                         android:id="@+id/search_department"
                         style="@style/DefaultText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2.5"
                         android:background="@drawable/rounded_white_shape"
+                        android:entries="@array/record_filter_list"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:textSize="@dimen/search_advance_text_size"/>
                 </LinearLayout>
 
@@ -106,7 +112,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <TextView
                         style="@style/DefaultText"

@@ -1,7 +1,13 @@
 package bkhn.et.hospitalbill.ui.doctor;
 
+import android.support.annotation.NonNull;
+
+import java.util.List;
+
 import bkhn.et.hospitalbill.base.IBaseContract.IBasePresenter;
 import bkhn.et.hospitalbill.base.IBaseContract.IBaseView;
+import bkhn.et.hospitalbill.data.model.DepartmentModel;
+import bkhn.et.hospitalbill.data.model.ProblemModel;
 import bkhn.et.hospitalbill.data.model.UserModel;
 
 /**
@@ -26,11 +32,21 @@ public interface DoctorContract {
 
     //    Search screen
     interface IIllnessSearchView extends IBaseView {
+        void toggleSearchMode();
 
+        void requestSearch();
+
+        void requestLoadDepartment();
+
+        void updateDepartments(List<DepartmentModel> data);
+
+        void updateProblemList(@NonNull List<ProblemModel> data);
     }
 
     interface IIllnessSearchPresenter<V extends IIllnessSearchView> extends IBasePresenter<V> {
+        void loadProblemList();
 
+        void loadDepartments();
     }
 
     //    Record

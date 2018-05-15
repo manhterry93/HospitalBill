@@ -40,4 +40,14 @@ public class DataManager implements IDataManager {
     public void logout() {
 
     }
+
+    @Override
+    public void loadDepartmentList(ValueEventListener listener) {
+        mRemoteProvider.loadDepartmentList(listener);
+    }
+
+    @Override
+    public void loadProblemList(ValueEventListener listener) {
+        mRemoteProvider.loadProblemList(listener);
+    }
 }

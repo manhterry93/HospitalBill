@@ -30,7 +30,7 @@
         </activity>
         <activity android:name=".ui.doctor.setting.view.SettingActivity">
         </activity>
-        <activity android:name=".ui.doctor.search.view.SearchActivity">
+        <activity android:name=".ui.doctor.search.SearchActivity">
         </activity>
         <activity android:name=".ui.doctor.record.view.RecordActivity">
         </activity>
