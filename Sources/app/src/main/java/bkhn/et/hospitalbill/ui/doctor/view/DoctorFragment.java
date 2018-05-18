@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import bkhn.et.hospitalbill.R;
 import bkhn.et.hospitalbill.base.BaseFragment;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract;
-import bkhn.et.hospitalbill.ui.doctor.record.view.RecordFragment;
+import bkhn.et.hospitalbill.ui.doctor.record.RecordFragment;
 import bkhn.et.hospitalbill.ui.doctor.search.SearchFragment;
 import bkhn.et.hospitalbill.ui.doctor.setting.view.SettingFragment;
 import bkhn.et.hospitalbill.ui.doctor.user.DoctorUserFragment;

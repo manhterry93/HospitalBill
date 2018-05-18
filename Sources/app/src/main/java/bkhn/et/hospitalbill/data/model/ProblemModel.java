@@ -1,15 +1,19 @@
 package bkhn.et.hospitalbill.data.model;
 
+import java.io.Serializable;
+
 /**
  * Created by PL_itto on 5/15/2018.
  */
 
-public class ProblemModel {
+public class ProblemModel implements Serializable{
     String id;
     double cost;
     String name;
     String unit;
     String departmentId;
+    int amount;
+
     public String getId() {
         return id;
     }
@@ -52,5 +56,13 @@ public class ProblemModel {
 
     public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

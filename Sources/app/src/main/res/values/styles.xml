@@ -70,4 +70,5 @@
     <style name="Record.ItemText" parent="DefaultText">
         <item name="android:textSize">@dimen/record_text_size</item>
     </style>
+
 </resources>

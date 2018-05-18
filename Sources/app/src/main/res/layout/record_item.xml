@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/record_root_view"
+    android:layout_marginBottom="5dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:elevation="2dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+
+    <!--ID-->
+    <TextView
+        android:id="@+id/record_id"
+        style="@style/Record.ItemText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/record_header_id"/>
+
+    <include layout="@layout/vertical_line"/>
+
+    <!--Time-->
+    <TextView
+        android:id="@+id/record_doctor"
+        style="@style/Record.ItemText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:text="@string/record_header_doctor"/>
+
+    <include layout="@layout/vertical_line"/>
+
+    <!--Doctor-->
+    <TextView
+        android:id="@+id/record_time"
+        style="@style/Record.ItemText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:text="@string/record_header_time"/>
+
+    <include layout="@layout/vertical_line"/>
+
+    <!--Note-->
+    <TextView
+        android:id="@+id/record_note"
+        style="@style/Record.ItemText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.1"
+        android:text="@string/record_header_note"/>
+
+</LinearLayout>

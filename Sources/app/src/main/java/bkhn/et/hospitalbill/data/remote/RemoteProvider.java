@@ -23,6 +23,7 @@ public class RemoteProvider implements IRemoteProvider {
     FirebaseAuth mFirebaseAuth;
     private static final String DEPARTMENT_TABLE = "Department";
     private static final String PROBLEM_TABLE = "Data";
+    private static final String RECORD_TABLE = "Record";
 
     @Inject
     public RemoteProvider() {
@@ -63,6 +64,13 @@ public class RemoteProvider implements IRemoteProvider {
     public void loadProblemList(ValueEventListener listener) {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference(PROBLEM_TABLE);
+        reference.addListenerForSingleValueEvent(listener);
+    }
+
+    @Override
+    public void loadRecordList(ValueEventListener listener) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference(RECORD_TABLE);
         reference.addListenerForSingleValueEvent(listener);
     }
 }

@@ -50,4 +50,9 @@ public class DataManager implements IDataManager {
     public void loadProblemList(ValueEventListener listener) {
         mRemoteProvider.loadProblemList(listener);
     }
+
+    @Override
+    public void loadRecordList(ValueEventListener listener) {
+        mRemoteProvider.loadRecordList(listener);
+    }
 }

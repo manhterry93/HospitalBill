@@ -20,4 +20,6 @@ public interface IRemoteProvider {
     void loadDepartmentList(ValueEventListener listener);
 
     void loadProblemList(ValueEventListener listener);
+
+    void loadRecordList(ValueEventListener listener);
 }

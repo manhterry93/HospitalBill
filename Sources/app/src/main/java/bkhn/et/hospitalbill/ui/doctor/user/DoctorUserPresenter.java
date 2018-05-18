@@ -43,7 +43,7 @@ public class DoctorUserPresenter<V extends DoctorContract.IDoctorUserView> exten
         public void onDataChange(DataSnapshot dataSnapshot) {
             if (isNotNull(dataSnapshot)) {
                 UserModel model = dataSnapshot.getValue(UserModel.class);
-                if (isNotNull(model)) {
+                if (isNotNull(model)&& isNotNull(mView)) {
                     mView.updateUserDetail(model);
                 }
             }

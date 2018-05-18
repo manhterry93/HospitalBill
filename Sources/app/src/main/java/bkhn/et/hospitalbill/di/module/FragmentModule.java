@@ -1,10 +1,12 @@
 package bkhn.et.hospitalbill.di.module;
 
 import bkhn.et.hospitalbill.base.BaseFragment;
+import bkhn.et.hospitalbill.ui.doctor.DoctorContract;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract.IDoctorUserPresenter;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract.IDoctorUserView;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract.IIllnessSearchPresenter;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract.IIllnessSearchView;
+import bkhn.et.hospitalbill.ui.doctor.record.RecordPresenter;
 import bkhn.et.hospitalbill.ui.doctor.search.SearchPresenter;
 import bkhn.et.hospitalbill.ui.doctor.user.DoctorUserPresenter;
 import bkhn.et.hospitalbill.ui.login.ILoginContract;
@@ -45,6 +47,11 @@ public class FragmentModule {
 
     @Provides
     IIllnessSearchPresenter<IIllnessSearchView> provideSearchPresenter(SearchPresenter<IIllnessSearchView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    DoctorContract.IRecordPresenter<DoctorContract.IRecordView> provideRecordPresenter(RecordPresenter<DoctorContract.IRecordView> presenter) {
         return presenter;
     }
 }

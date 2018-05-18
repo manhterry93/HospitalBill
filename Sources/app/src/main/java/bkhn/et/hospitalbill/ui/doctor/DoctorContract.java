@@ -8,6 +8,7 @@ import bkhn.et.hospitalbill.base.IBaseContract.IBasePresenter;
 import bkhn.et.hospitalbill.base.IBaseContract.IBaseView;
 import bkhn.et.hospitalbill.data.model.DepartmentModel;
 import bkhn.et.hospitalbill.data.model.ProblemModel;
+import bkhn.et.hospitalbill.data.model.RecordModel;
 import bkhn.et.hospitalbill.data.model.UserModel;
 
 /**
@@ -51,11 +52,16 @@ public interface DoctorContract {
 
     //    Record
     interface IRecordView extends IBaseView {
+        void requestLoadRecord();
+
+        void openRecordDetail(RecordModel model);
+
+        void updateRecordList(List<RecordModel> data);
 
     }
 
     interface IRecordPresenter<V extends IRecordView> extends IBasePresenter<V> {
-
+        void loadRecords();
     }
 
     //  SettingActivity

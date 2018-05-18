@@ -1,4 +1,4 @@
-package bkhn.et.hospitalbill.ui.doctor.record.view;
+package bkhn.et.hospitalbill.ui.doctor.record;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
