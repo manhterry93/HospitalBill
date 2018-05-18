@@ -1,14 +1,19 @@
 package bkhn.et.hospitalbill.ui.doctor.record;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -22,6 +27,7 @@ import bkhn.et.hospitalbill.R;
 import bkhn.et.hospitalbill.base.BaseFragment;
 import bkhn.et.hospitalbill.data.model.RecordModel;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract;
+import bkhn.et.hospitalbill.ui.newrecord.NewRecordActivity;
 import bkhn.et.hospitalbill.utils.AppConstants;
 import bkhn.et.hospitalbill.utils.AppConstants.Record;
 import bkhn.et.hospitalbill.utils.Logg;
@@ -41,7 +47,8 @@ public class RecordFragment extends BaseFragment implements DoctorContract.IReco
     private EditText mFilterEdit;
     private Button mFilterBtn;
     private RecyclerView mRecordListView;
-
+    private ImageView mClearInput;
+    private FloatingActionButton mNewRecordBtn;
     /* Parameters */
     private RecordAdapter mAdapter;
     @Inject
@@ -54,9 +61,43 @@ public class RecordFragment extends BaseFragment implements DoctorContract.IReco
         mFilterEdit = mView.findViewById(R.id.record_filter_input);
         mFilterBtn = mView.findViewById(R.id.record_filter_btn);
         mRecordListView = mView.findViewById(R.id.record_result_list);
+        mClearInput = mView.findViewById(R.id.search_clear_input);
+        mNewRecordBtn = mView.findViewById(R.id.record_new);
         mAdapter = new RecordAdapter();
         mRecordListView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
         mRecordListView.setAdapter(mAdapter);
+        mFilterEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() > 0)
+                    mClearInput.setVisibility(View.VISIBLE);
+                else
+                    mClearInput.setVisibility(View.INVISIBLE);
+                requestSearch();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        mClearInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFilterEdit.setText("");
+            }
+        });
+        mNewRecordBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNewRecord();
+            }
+        });
     }
 
     @Override
@@ -85,18 +126,25 @@ public class RecordFragment extends BaseFragment implements DoctorContract.IReco
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mPresenter.loadRecords();
+        requestLoadRecord();
     }
 
     private void requestSearch() {
-        String keyword = mFilterEdit.getText().toString();
+        String keyword = mFilterEdit.getText().toString().toLowerCase();
         Record.TYPE type = Record.TYPE.setValue(mTypeSpin.getSelectedItemPosition());
+        Logg.d(TAG, "search: " + keyword + " " + type);
         mAdapter.filter(keyword, type);
     }
 
     @Override
     public void openRecordDetail(RecordModel model) {
 
+    }
+
+    @Override
+    public void openNewRecord() {
+        Intent intent = new Intent(mContext, NewRecordActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -116,7 +164,7 @@ public class RecordFragment extends BaseFragment implements DoctorContract.IReco
         }
 
         public void replaceData(List<RecordModel> data) {
-            Logg.d(TAG,"replaceData: "+data.size());
+            Logg.d(TAG, "replaceData: " + data.size());
             if (isNotNull(data)) {
                 mOriginList.clear();
                 mOriginList.addAll(data);
@@ -127,9 +175,9 @@ public class RecordFragment extends BaseFragment implements DoctorContract.IReco
         public void filter(String keyword, Record.TYPE type) {
             mRecordList.clear();
             for (RecordModel model : mOriginList) {
-                String id = model.getRecordId();
-                String doctor = model.getDoctorId();
-                String note = model.getNote();
+                String id = model.getRecordId().toLowerCase();
+                String doctor = model.getDoctorId().toLowerCase();
+                String note = model.getNote().toLowerCase();
                 if (isNotNull(keyword)) {
                     switch (type) {
                         case ALL:
@@ -145,11 +193,11 @@ public class RecordFragment extends BaseFragment implements DoctorContract.IReco
                                 mRecordList.add(model);
                             break;
                     }
-                }else{
+                } else {
                     mRecordList.add(model);
                 }
             }
-            Logg.d(TAG,"Filter : "+mRecordList.size());
+            Logg.d(TAG, "Filter : " + mRecordList.size());
             notifyDataSetChanged();
         }
 

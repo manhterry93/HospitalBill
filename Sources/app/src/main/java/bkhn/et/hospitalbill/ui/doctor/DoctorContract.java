@@ -56,6 +56,8 @@ public interface DoctorContract {
 
         void openRecordDetail(RecordModel model);
 
+        void openNewRecord();
+
         void updateRecordList(List<RecordModel> data);
 
     }

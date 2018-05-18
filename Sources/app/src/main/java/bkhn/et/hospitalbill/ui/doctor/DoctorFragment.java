@@ -1,16 +1,15 @@
-package bkhn.et.hospitalbill.ui.doctor.view;
+package bkhn.et.hospitalbill.ui.doctor;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 
 import bkhn.et.hospitalbill.R;
 import bkhn.et.hospitalbill.base.BaseFragment;
-import bkhn.et.hospitalbill.ui.doctor.DoctorContract;
 import bkhn.et.hospitalbill.ui.doctor.record.RecordFragment;
 import bkhn.et.hospitalbill.ui.doctor.search.SearchFragment;
 import bkhn.et.hospitalbill.ui.doctor.setting.view.SettingFragment;
@@ -58,7 +57,7 @@ public class DoctorFragment extends BaseFragment implements DoctorContract.IDoct
 
     }
 
-    class ContentPagerAdapter extends FragmentStatePagerAdapter {
+    class ContentPagerAdapter extends FragmentPagerAdapter {
         public ContentPagerAdapter(FragmentManager fm) {
             super(fm);
         }

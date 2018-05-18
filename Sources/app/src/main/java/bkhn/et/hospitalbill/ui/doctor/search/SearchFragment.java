@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -114,10 +115,23 @@ public class SearchFragment extends BaseFragment implements IIllnessSearchView {
                     mClearInput.setVisibility(View.VISIBLE);
                 else
                     mClearInput.setVisibility(View.INVISIBLE);
+                requestSearch();
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mDepartmentSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                requestSearch();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
@@ -130,7 +144,7 @@ public class SearchFragment extends BaseFragment implements IIllnessSearchView {
 
     @Override
     public void requestSearch() {
-        String keyword = mSearchInput.getText().toString();
+        String keyword = mSearchInput.getText().toString().toLowerCase();
         String departmentId = ((DepartmentModel) mDepartmentSpin.getSelectedItem()).getId();
         mResultAdapter.filter(keyword, departmentId);
     }
@@ -182,7 +196,7 @@ public class SearchFragment extends BaseFragment implements IIllnessSearchView {
             mProblemList.clear();
             for (ProblemModel problemModel : mOriginList) {
                 if (problemModel.getDepartmentId().equals(departmentId) || departmentId.equals("-1")) {
-                    if (problemModel.getName().contains(keyword) || keyword.isEmpty()) {
+                    if (problemModel.getName().toLowerCase().contains(keyword) || keyword.isEmpty()) {
                         mProblemList.add(problemModel);
                     }
                 }

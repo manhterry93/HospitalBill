@@ -12,6 +12,8 @@ import bkhn.et.hospitalbill.ui.doctor.user.DoctorUserPresenter;
 import bkhn.et.hospitalbill.ui.login.ILoginContract;
 import bkhn.et.hospitalbill.ui.login.ILoginContract.ILoginView;
 import bkhn.et.hospitalbill.ui.login.LoginPresenter;
+import bkhn.et.hospitalbill.ui.newrecord.INewRecordContract;
+import bkhn.et.hospitalbill.ui.newrecord.NewRecordPresenter;
 import bkhn.et.hospitalbill.ui.splash.ISplashContract.ISplashPresenter;
 import bkhn.et.hospitalbill.ui.splash.ISplashContract.ISplashView;
 import bkhn.et.hospitalbill.ui.splash.SplashPresenter;
@@ -52,6 +54,11 @@ public class FragmentModule {
 
     @Provides
     DoctorContract.IRecordPresenter<DoctorContract.IRecordView> provideRecordPresenter(RecordPresenter<DoctorContract.IRecordView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    INewRecordContract.INewRecordPresenter<INewRecordContract.INewRecordView> provideNewRecordPresenter(NewRecordPresenter<INewRecordContract.INewRecordView> presenter) {
         return presenter;
     }
 }

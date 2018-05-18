@@ -34,6 +34,8 @@
         </activity>
         <activity android:name=".ui.doctor.record.RecordActivity">
         </activity>
+        <activity android:name=".ui.newrecord.NewRecordActivity">
+        </activity>
     </application>
 
 </manifest>

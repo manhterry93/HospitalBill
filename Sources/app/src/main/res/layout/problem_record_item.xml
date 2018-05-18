@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/round_stroke_shape"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/search_item_icon_size"
+        android:layout_height="@dimen/search_item_icon_size"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_problem"/>
+
+    <ImageView
+        android:id="@+id/cancel_btn"
+        android:layout_width="@dimen/record_problem_cancel_icon_size"
+        android:layout_height="@dimen/record_problem_cancel_icon_size"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/cancel_btn"
+        android:layout_toRightOf="@id/icon"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/problem_id"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/search_item_id_text_size"/>
+
+        <TextView
+            android:id="@+id/problem_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/search_item_name_text_size"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:id="@+id/problem_cost"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="@string/record_problem_amount"
+                android:textAllCaps="true"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/record_problem_amount_text_size"/>
+
+            <ImageView
+                android:id="@+id/problem_amount_decrease"
+                android:layout_width="@dimen/record_problem_amount_icon_size"
+                android:layout_height="@dimen/record_problem_amount_icon_size"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_arrow_left"/>
+
+            <TextView
+                android:id="@+id/problem_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="1"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/record_problem_amount_text_size"/>
+
+            <ImageView
+                android:id="@+id/problem_amount_increase"
+                android:layout_width="@dimen/record_problem_amount_icon_size"
+                android:layout_height="@dimen/record_problem_amount_icon_size"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_arrow_right"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -50,4 +50,11 @@
     <string name="record_header_doctor">Bác sĩ</string>
     <string name="record_header_note">Chú thích</string>
 
+    <!--NewRecord-->
+    <string name="new_record_doctor">Bác sĩ:</string>
+    <string name="new_record_patient">Bệnh nhân:</string>
+    <string name="new_record_problem">Bệnh án:</string>
+    <string name="new_record_add"></string>
+    <!--RecordProblem-->
+    <string name="record_problem_amount">SL:</string>
 </resources>

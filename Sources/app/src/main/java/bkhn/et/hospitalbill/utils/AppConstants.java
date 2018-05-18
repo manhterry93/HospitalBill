@@ -5,7 +5,7 @@ package bkhn.et.hospitalbill.utils;
  */
 
 public class AppConstants {
-    public static final String TAGG = "PL_itto";
+    public static final String TAGG = "PL_itto.";
 
     public static final class Job {
         public static final int TYPE_DOCTOR = 101;
@@ -27,7 +27,7 @@ public class AppConstants {
 
     public static final class Record {
         public enum TYPE {
-            ALL(-1), ID(0), DOCTOR(1);
+            ALL(0), ID(1), DOCTOR(2);
             private int val;
 
             TYPE(int value) {
@@ -40,11 +40,11 @@ public class AppConstants {
 
             static public TYPE setValue(int val) {
                 switch (val) {
-                    case -1:
-                        return TYPE.ALL;
                     case 0:
-                        return TYPE.ID;
+                        return TYPE.ALL;
                     case 1:
+                        return TYPE.ID;
+                    case 2:
                         return TYPE.DOCTOR;
                 }
                 return ALL;

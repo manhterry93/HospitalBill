@@ -63,6 +63,7 @@
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/color_white"
                 android:gravity="center"
+                android:visibility="gone"
                 android:text="@string/search_btn_title"
                 android:textAllCaps="false"
                 android:textColor="@color/color_grey"
