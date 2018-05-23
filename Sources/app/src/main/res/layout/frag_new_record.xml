@@ -1,154 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgr_color"
     android:paddingLeft="5dp"
     android:paddingRight="5dp">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:theme="@style/AppTheme.Toolbar"/>
-
-    <LinearLayout
-        android:id="@+id/new_record_head_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/round_stroke_shape"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-        <!--Doctor-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/NewRecord.Header"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:text="@string/new_record_doctor"/>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/new_record_doctor_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
-                    android:textColor="@color/color_white"
-                    android:textSize="@dimen/new_record_id_text_size"/>
-
-                <TextView
-                    android:id="@+id/new_record_doctor_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/color_white"
-                    android:textSize="@dimen/new_record_name_text_size"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
-            android:background="@color/color_grey_light"/>
-
-        <!--Patient-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/NewRecord.Header"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:text="@string/new_record_patient"/>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/new_record_patient_id"
-                    style="@style/NewRecord.Item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
-                    android:text="hitagi.senjou"
-                    android:textColor="@color/color_white"
-                    android:textSize="@dimen/new_record_id_text_size"/>
-
-                <EditText
-                    android:id="@+id/new_record_patient_name"
-                    style="@style/NewRecord.Item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hitagi Senjougahara"
-                    android:textColor="@color/color_white"
-                    android:textSize="@dimen/new_record_name_text_size"/>
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/new_record_problem_layout"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/content_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/new_record_head_layout"
-        android:orientation="vertical">
+        >
 
-        <RelativeLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppTheme.Toolbar"/>
 
-            <TextView
-                style="@style/NewRecord.Header"
-                android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/new_record_head_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/round_stroke_shape"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <!--Doctor-->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginBottom="5dp"
-                android:maxLines="1"
-                android:text="@string/new_record_problem"/>
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/header_add_problem"
-                style="@style/NewRecord.Header"
-                android:layout_width="@dimen/new_record_add_problem_btn_width"
-                android:layout_height="@dimen/new_record_add_problem_btn_height"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/round_stroke_shape"
-                android:src="@drawable/ic_add"
-                android:tint="@color/color_white"/>
-        </RelativeLayout>
+                <TextView
+                    style="@style/NewRecord.Header"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/new_record_doctor"/>
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/new_record_problem_list"
+                    <TextView
+                        android:id="@+id/new_record_doctor_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="7dp"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/new_record_id_text_size"/>
+
+                    <TextView
+                        android:id="@+id/new_record_doctor_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/new_record_name_text_size"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/color_grey_light"/>
+
+            <!--Patient-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/NewRecord.Header"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/new_record_patient"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/new_record_patient_id"
+                        style="@style/NewRecord.Item"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="7dp"
+                        android:text="hitagi.senjou"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/new_record_id_text_size"/>
+
+                    <EditText
+                        android:id="@+id/new_record_patient_name"
+                        style="@style/NewRecord.Item"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hitagi Senjougahara"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/new_record_name_text_size"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--Note-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/NewRecord.Header"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/new_record_note"/>
+
+                <EditText
+                    android:id="@+id/new_record_note"
+                    style="@style/NewRecord.Item"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_white"
+                    android:layout_weight="3"
+                    android:maxLines="3"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/new_record_problem_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/round_stroke_shape"
-            android:padding="5dp"/>
-    </LinearLayout>
-</RelativeLayout>
+            android:layout_below="@id/new_record_head_layout"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/NewRecord.Header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dp"
+                    android:maxLines="1"
+                    android:text="@string/new_record_problem"/>
+
+                <ImageView
+                    android:id="@+id/header_add_problem"
+                    style="@style/NewRecord.Header"
+                    android:layout_width="@dimen/new_record_add_problem_btn_width"
+                    android:layout_height="@dimen/new_record_add_problem_btn_height"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/round_stroke_shape"
+                    android:clickable="false"
+                    android:src="@drawable/ic_add"
+                    android:tint="@color/color_white"/>
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/new_record_problem_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_stroke_shape"
+                android:padding="5dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_done"
+        app:layout_anchor="@id/content_layout"
+        app:layout_anchorGravity="bottom|right"/>
+
+</android.support.design.widget.CoordinatorLayout>

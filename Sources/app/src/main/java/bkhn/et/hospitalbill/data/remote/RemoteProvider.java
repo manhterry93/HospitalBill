@@ -7,9 +7,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import bkhn.et.hospitalbill.data.model.ProblemModel;
+import bkhn.et.hospitalbill.data.model.RecordModel;
 import bkhn.et.hospitalbill.utils.Logg;
 
 import static bkhn.et.hospitalbill.utils.AppConstants.TAGG;
@@ -71,6 +76,43 @@ public class RemoteProvider implements IRemoteProvider {
     public void loadRecordList(ValueEventListener listener) {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference(RECORD_TABLE);
-        reference.addListenerForSingleValueEvent(listener);
+        reference.addValueEventListener(listener);
+    }
+
+    @Override
+    public void createRecord(RecordModel model, DatabaseReference.CompletionListener listener) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference(RECORD_TABLE);
+        String newKey = reference.push().getKey();
+        model.setRecordId(newKey);
+        Map<String, Object> taskMap = new HashMap<>();
+        taskMap.put("doctorId", model.getDoctorId());
+        taskMap.put("doctorName", model.getDoctorName());
+        taskMap.put("patientId", model.getPatientId());
+        taskMap.put("patientName", model.getPatientName());
+        taskMap.put("note", model.getNote());
+        taskMap.put("time", model.getTime());
+        //data
+        reference = reference.child(newKey);
+        Map<String, Object> taskData = new HashMap<>();
+        DatabaseReference data = reference.child("data");
+        for (ProblemModel problemItem : model.getProblemList()) {
+            Map<String, Object> problem = new HashMap<>();
+            problem.put("amount", problemItem.getAmount());
+            problem.put("cost", problemItem.getCost());
+            problem.put("name", problemItem.getName());
+            problem.put("unit", problemItem.getUnit());
+//            String id = problemItem.getId();
+//            DatabaseReference problem = data.child(id);
+//            problem.child("amount").setValue(problemItem.getAmount());
+//            problem.child("cost").setValue(problemItem.getCost());
+//            problem.child("name").setValue(problemItem.getName());
+//            problem.child("unit").setValue(problemItem.getUnit());
+            taskData.put(problemItem.getId(), problem);
+        }
+
+        taskMap.put("data", taskData);
+        reference.updateChildren(taskMap,listener);
+
     }
 }

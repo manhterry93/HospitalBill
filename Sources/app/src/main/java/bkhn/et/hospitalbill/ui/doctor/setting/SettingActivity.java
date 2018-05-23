@@ -1,4 +1,4 @@
-package bkhn.et.hospitalbill.ui.doctor.setting.view;
+package bkhn.et.hospitalbill.ui.doctor.setting;
 
 import android.support.v4.app.Fragment;
 

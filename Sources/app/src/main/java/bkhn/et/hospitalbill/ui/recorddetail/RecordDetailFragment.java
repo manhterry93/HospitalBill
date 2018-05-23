@@ -1,7 +1,5 @@
-package bkhn.et.hospitalbill.ui.newrecord;
+package bkhn.et.hospitalbill.ui.recorddetail;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -16,31 +14,26 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import bkhn.et.hospitalbill.R;
 import bkhn.et.hospitalbill.base.BaseFragment;
-import bkhn.et.hospitalbill.data.model.DepartmentModel;
 import bkhn.et.hospitalbill.data.model.ProblemModel;
 import bkhn.et.hospitalbill.data.model.RecordModel;
-import bkhn.et.hospitalbill.data.model.UserModel;
-import bkhn.et.hospitalbill.ui.newrecord.problemsselect.ProblemSelectDialog;
+import bkhn.et.hospitalbill.ui.newrecord.NewRecordFragment;
 import bkhn.et.hospitalbill.utils.AppConstants;
 
 import static bkhn.et.hospitalbill.utils.AppConstants.TAGG;
 import static bkhn.et.hospitalbill.utils.AppUtils.isNotNull;
 
 /**
- * Created by PL_itto on 5/18/2018.
+ * Created by PL_itto on 5/23/2018.
  */
 
-public class NewRecordFragment extends BaseFragment implements INewRecordContract.INewRecordView {
-    private static final String TAG = TAGG + NewRecordFragment.class.getSimpleName();
-    private static final int SELECT_PROBLEM_REQUEST_CODE = 200;
+public class RecordDetailFragment extends BaseFragment {
+    private static final String TAG = TAGG + RecordDetailFragment.class.getSimpleName();
+
     /* Views */
     private Toolbar mToolbar;
     private TextView mDoctorId, mDoctorName;
@@ -49,38 +42,26 @@ public class NewRecordFragment extends BaseFragment implements INewRecordContrac
     private ImageView mAddProblemBtn;
     private FloatingActionButton mDoneBtn;
     private EditText mNoteEdit;
-    /* Parameters */
-    private ProblemListAdapter mProblemListAdapter;
-    private List<ProblemModel> mProblemList;
-    private List<DepartmentModel> mDepartmentList;
 
-    @Inject
-    INewRecordContract.INewRecordPresenter<INewRecordContract.INewRecordView> mPresenter;
+    /* Parameters */
+    private RecordModel mRecordModel;
+    private ProblemListAdapter mProblemListAdapter;
 
     @Override
     protected void initInject() {
-        getFragmentComponent().inject(this);
-        mPresenter.onAttach(this);
-    }
 
-    @Override
-    public void onDestroy() {
-        if (isNotNull(mPresenter))
-            mPresenter.onDetach();
-        super.onDestroy();
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        mRecordModel = (RecordModel) getActivity().getIntent().getSerializableExtra(AppConstants.Record.EXTRA_RECORD);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home)
-            mActivity.finish();
-        return super.onOptionsItemSelected(item);
+    protected int getLayoutId() {
+        return R.layout.frag_new_record;
     }
 
     @Override
@@ -93,110 +74,42 @@ public class NewRecordFragment extends BaseFragment implements INewRecordContrac
         mPatientName = mView.findViewById(R.id.new_record_patient_name);
         mProblemView = mView.findViewById(R.id.new_record_problem_list);
         mAddProblemBtn = mView.findViewById(R.id.header_add_problem);
-        mAddProblemBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openProblemSelect();
-            }
-        });
         mNoteEdit = mView.findViewById(R.id.new_record_note);
-        // Problem List View
         mProblemView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
         mProblemListAdapter = new ProblemListAdapter();
         mProblemView.setAdapter(mProblemListAdapter);
         mDoneBtn = mView.findViewById(R.id.fab_done);
-        mDoneBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                requestCompleteRecord();
-            }
-        });
-
+        mDoneBtn.setVisibility(View.GONE);
+        mAddProblemBtn.setVisibility(View.GONE);
+        mPatientName.setEnabled(false);
+        mPatientId.setEnabled(false);
     }
 
     private void setupActionBar() {
         mToolbar = mView.findViewById(R.id.toolbar);
+        mToolbar.setTitle(R.string.record_detail_title);
         mActivity.setSupportActionBar(mToolbar);
         mActivity.getSupportActionBar().setDisplayShowHomeEnabled(true);
         mActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.frag_new_record;
-    }
-
-    @Override
-    public void addProblem(ProblemModel model) {
-        if (isNotNull(model)) mProblemListAdapter.addProblem(model);
-    }
-
-    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        requestDoctorInfo();
-        mPresenter.loadDepartmentList();
-        mPresenter.loadProblemList();
-    }
-
-
-    @Override
-    public void openProblemSelect() {
-        if (isNotNull(mProblemList) && mProblemList.size() > 0
-                && isNotNull(mDepartmentList) && mDepartmentList.size() > 0) {
-            ProblemSelectDialog dialog = new ProblemSelectDialog();
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(AppConstants.Record.EXTRA_PROBLEM_LIST, (Serializable) mProblemList);
-            bundle.putSerializable(AppConstants.Record.EXTRA_DEPARTMENT_LIST, (Serializable) mDepartmentList);
-            dialog.setTargetFragment(this, SELECT_PROBLEM_REQUEST_CODE);
-            dialog.setArguments(bundle);
-            dialog.show(getFragmentManager(), null);
-        }
+        mDoctorId.setText(mRecordModel.getDoctorId());
+        mDoctorName.setText(mRecordModel.getDoctorName());
+        mPatientId.setText(mRecordModel.getPatientId());
+        mPatientName.setText(mRecordModel.getPatientName());
+        mNoteEdit.setText(mRecordModel.getNote());
+        if (isNotNull(mRecordModel))
+            mProblemListAdapter.replaceData(mRecordModel.getProblemList());
     }
 
     @Override
-    public void requestCompleteRecord() {
-        if (mProblemListAdapter.getItemCount() > 0) {
-            RecordModel model = new RecordModel();
-            model.setTime(getCurrentTime());
-            model.setDoctorId(mDoctorId.getText().toString());
-            model.setDoctorName(mDoctorName.getText().toString());
-            model.setPatientId(mPatientId.getText().toString());
-            model.setPatientName(mPatientName.getText().toString());
-            model.setProblemList(mProblemListAdapter.getData());
-            model.setNote(mNoteEdit.getText().toString());
-            mPresenter.completeRecord(model);
-        }
-    }
-
-    @Override
-    public void updateProblemList(List<ProblemModel> data) {
-        if (isNotNull(data)) {
-            mProblemList = data;
-        }
-    }
-
-    @Override
-    public void updateDepartments(List<DepartmentModel> data) {
-        if (isNotNull(data)) {
-            mDepartmentList = data;
-        }
-    }
-
-    @Override
-    public void requestDoctorInfo() {
-        mPresenter.loadDoctorInfo();
-    }
-
-    @Override
-    public void updateDoctorInfo(UserModel model) {
-        mDoctorId.setText(model.getId());
-        mDoctorName.setText(model.getName());
-    }
-
-    @Override
-    public void onAddRecordResult(boolean success) {
-        mActivity.finish();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+            mActivity.finish();
+        return super.onOptionsItemSelected(item);
     }
 
     class ProblemListAdapter extends RecyclerView.Adapter<ProblemListAdapter.ProblemHolder> {
@@ -288,25 +201,6 @@ public class NewRecordFragment extends BaseFragment implements INewRecordContrac
                         break;
                 }
                 updateProblemAmount(model);
-            }
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK) {
-            switch (requestCode) {
-                case SELECT_PROBLEM_REQUEST_CODE:
-                    if (isNotNull(data)) {
-                        ProblemModel model = (ProblemModel) data.getSerializableExtra(AppConstants.Record.EXTRA_PROBLEM_RETURN);
-                        if (isNotNull(model)) {
-                            addProblem(model.clone());
-                        }
-
-                    }
-
-                    break;
             }
         }
     }

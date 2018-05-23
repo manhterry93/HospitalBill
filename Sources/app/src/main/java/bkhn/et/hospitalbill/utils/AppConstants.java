@@ -52,5 +52,10 @@ public class AppConstants {
 
 
         }
+
+        public static final String EXTRA_PROBLEM_LIST = "extra_problem_list";
+        public static final String EXTRA_DEPARTMENT_LIST = "extra_department_list";
+        public static final String EXTRA_PROBLEM_RETURN = "extra_problem_return";
+        public static final String EXTRA_RECORD = "extra_record";
     }
 }

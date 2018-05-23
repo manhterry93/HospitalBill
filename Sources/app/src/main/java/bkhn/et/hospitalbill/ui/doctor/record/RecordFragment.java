@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.MissingResourceException;
 
 import javax.inject.Inject;
 
@@ -28,6 +29,7 @@ import bkhn.et.hospitalbill.base.BaseFragment;
 import bkhn.et.hospitalbill.data.model.RecordModel;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract;
 import bkhn.et.hospitalbill.ui.newrecord.NewRecordActivity;
+import bkhn.et.hospitalbill.ui.recorddetail.RecordDetailActivity;
 import bkhn.et.hospitalbill.utils.AppConstants;
 import bkhn.et.hospitalbill.utils.AppConstants.Record;
 import bkhn.et.hospitalbill.utils.Logg;
@@ -138,7 +140,9 @@ public class RecordFragment extends BaseFragment implements DoctorContract.IReco
 
     @Override
     public void openRecordDetail(RecordModel model) {
-
+        Intent intent = new Intent(mContext, RecordDetailActivity.class);
+        intent.putExtra(Record.EXTRA_RECORD, model);
+        startActivity(intent);
     }
 
     @Override
@@ -221,7 +225,7 @@ public class RecordFragment extends BaseFragment implements DoctorContract.IReco
             return mRecordList.size();
         }
 
-        class RecordHolder extends RecyclerView.ViewHolder {
+        class RecordHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             TextView mId, mDoctor, mTime, mNote;
             LinearLayout mRootLayout;
 
@@ -232,6 +236,7 @@ public class RecordFragment extends BaseFragment implements DoctorContract.IReco
                 mDoctor = itemView.findViewById(R.id.record_doctor);
                 mTime = itemView.findViewById(R.id.record_time);
                 mNote = itemView.findViewById(R.id.record_note);
+                mRootLayout.setOnClickListener(this);
             }
 
             void bindITem(RecordModel model) {
@@ -239,6 +244,13 @@ public class RecordFragment extends BaseFragment implements DoctorContract.IReco
                 mDoctor.setText(model.getDoctorId());
                 mTime.setText(model.getTimeLiteString());
                 mNote.setText(model.getNote());
+            }
+
+            @Override
+            public void onClick(View v) {
+                if (v.getId() == R.id.record_root_view) {
+                    openRecordDetail(getItemAt(getAdapterPosition()));
+                }
             }
         }
 

@@ -3,6 +3,7 @@ package bkhn.et.hospitalbill.ui.newrecord;
 import java.util.List;
 
 import bkhn.et.hospitalbill.base.IBaseContract;
+import bkhn.et.hospitalbill.data.model.DepartmentModel;
 import bkhn.et.hospitalbill.data.model.ProblemModel;
 import bkhn.et.hospitalbill.data.model.RecordModel;
 import bkhn.et.hospitalbill.data.model.UserModel;
@@ -21,9 +22,13 @@ public interface INewRecordContract {
 
         void updateProblemList(List<ProblemModel> data);
 
+        void updateDepartments(List<DepartmentModel> data);
+
         void requestDoctorInfo();
 
         void updateDoctorInfo(UserModel model);
+
+        void onAddRecordResult(boolean success);
     }
 
     interface INewRecordPresenter<V extends INewRecordView> extends IBaseContract.IBasePresenter<V> {
@@ -31,6 +36,10 @@ public interface INewRecordContract {
 
         void loadProblemList();
 
+        void loadDepartmentList();
+
         void loadDoctorInfo();
+
+
     }
 }

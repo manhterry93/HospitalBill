@@ -5,6 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bkhn.et.hospitalbill.ui.doctor.setting.view.SettingActivity">
+    tools:context="bkhn.et.hospitalbill.ui.doctor.setting.SettingActivity">
 
 </android.support.constraint.ConstraintLayout>

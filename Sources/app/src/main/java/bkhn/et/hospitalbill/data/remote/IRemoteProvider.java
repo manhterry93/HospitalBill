@@ -2,7 +2,10 @@ package bkhn.et.hospitalbill.data.remote;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+
+import bkhn.et.hospitalbill.data.model.RecordModel;
 
 /**
  * Created by PL_itto on 5/10/2018.
@@ -22,4 +25,6 @@ public interface IRemoteProvider {
     void loadProblemList(ValueEventListener listener);
 
     void loadRecordList(ValueEventListener listener);
+
+    void createRecord(RecordModel model, DatabaseReference.CompletionListener listener);
 }

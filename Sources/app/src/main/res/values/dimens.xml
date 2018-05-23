@@ -35,7 +35,7 @@
     <!--Illness Search-->
     <dimen name="search_filter_icon_size">20dp</dimen>
     <dimen name="search_margin_bottom">15dp</dimen>
-    <dimen name="search_padding_horizontal">10dp</dimen>
+    <dimen name="search_padding">10dp</dimen>
     <dimen name="search_btn_width">70dp</dimen>
     <dimen name="search_btn_height">30dp</dimen>
     <dimen name="search_btn_text_size">13dp</dimen>
@@ -59,6 +59,6 @@
     <dimen name="new_record_add_problem_btn_height">20dp</dimen>
     <!--RecordProblem-->
     <dimen name="record_problem_amount_text_size">13dp</dimen>
-    <dimen name="record_problem_amount_icon_size">13dp</dimen>
+    <dimen name="record_problem_amount_icon_size">17dp</dimen>
     <dimen name="record_problem_cancel_icon_size">30dp</dimen>
 </resources>

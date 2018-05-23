@@ -5,36 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/bgr_color"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/search_padding_horizontal"
-    android:paddingRight="@dimen/search_padding_horizontal">
-    <!--SearchView-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/search_margin_bottom"
-        android:background="@drawable/rounded_white_shape"
-        android:padding="5dp">
-
-        <ImageView
-            android:id="@+id/search_clear_input"
-            android:layout_width="@dimen/search_filter_icon_size"
-            android:layout_height="@dimen/search_filter_icon_size"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            android:visibility="invisible"
-            android:layout_marginRight="5dp"
-            android:src="@drawable/ic_clear"/>
-
-        <EditText
-            android:id="@+id/search_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/search_clear_input"
-            android:background="@color/transparent"
-            android:textColor="@color/color_grey_light"/>
-    </RelativeLayout>
+    android:padding="@dimen/search_padding">
 
     <!--Advance Search-->
     <LinearLayout
@@ -48,9 +19,37 @@
             style="@style/Search.Header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginBottom="5dp"
             android:text="@string/search_header_advance"/>
+        <!--SearchView-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/search_margin_bottom"
+            android:background="@drawable/rounded_white_shape"
+            android:padding="5dp">
 
+            <ImageView
+                android:id="@+id/search_clear_input"
+                android:layout_width="@dimen/search_filter_icon_size"
+                android:layout_height="@dimen/search_filter_icon_size"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:visibility="invisible"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_clear"/>
+
+            <EditText
+                android:id="@+id/search_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/search_clear_input"
+                android:background="@color/transparent"
+                android:textColor="@color/color_grey_light"/>
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

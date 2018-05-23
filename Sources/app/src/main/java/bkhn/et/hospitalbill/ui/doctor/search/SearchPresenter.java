@@ -46,7 +46,6 @@ public class SearchPresenter<V extends IIllnessSearchView> extends BasePresenter
     }
 
     class DepartmentListener implements ValueEventListener {
-
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
             if (isNotNull(dataSnapshot)) {

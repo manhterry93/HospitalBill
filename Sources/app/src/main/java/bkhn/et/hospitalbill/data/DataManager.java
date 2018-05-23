@@ -2,11 +2,13 @@ package bkhn.et.hospitalbill.data;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import bkhn.et.hospitalbill.data.model.RecordModel;
 import bkhn.et.hospitalbill.data.remote.IRemoteProvider;
 
 /**
@@ -54,5 +56,10 @@ public class DataManager implements IDataManager {
     @Override
     public void loadRecordList(ValueEventListener listener) {
         mRemoteProvider.loadRecordList(listener);
+    }
+
+    @Override
+    public void createRecord(RecordModel model, DatabaseReference.CompletionListener listener) {
+        mRemoteProvider.createRecord(model,listener);
     }
 }

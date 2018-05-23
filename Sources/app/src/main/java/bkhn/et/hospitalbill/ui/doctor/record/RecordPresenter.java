@@ -63,6 +63,7 @@ public class RecordPresenter<V extends DoctorContract.IRecordView> extends BaseP
                 DataSnapshot problemResponse = record.child("data");
                 item.setProblemList(retrieveProblemList(problemResponse));
                 result.add(item);
+                Logg.d(TAG,"data: "+item.getDoctorId()+" "+item.getDoctorName());
             }
         return result;
     }

@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 import bkhn.et.hospitalbill.MainApp;
 import bkhn.et.hospitalbill.di.component.DaggerFragmentComponent;
 import bkhn.et.hospitalbill.di.component.FragmentComponent;
@@ -86,5 +88,10 @@ public abstract class BaseFragment extends Fragment implements IBaseContract.IBa
     @Override
     public boolean isNetworkConnected() {
         return NetworkUtils.isNetworkConnected(mContext);
+    }
+
+    @Override
+    public long getCurrentTime() {
+        return Calendar.getInstance().getTime().getTime();
     }
 }

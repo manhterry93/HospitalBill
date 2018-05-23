@@ -11,6 +11,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 import bkhn.et.hospitalbill.R;
 import bkhn.et.hospitalbill.base.IBaseContract.IActionCallback;
 import bkhn.et.hospitalbill.utils.NetworkUtils;
@@ -101,5 +103,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseCon
         return true;
     }
 
-
+    @Override
+    public long getCurrentTime() {
+        return Calendar.getInstance().getTime().getTime();
+    }
 }

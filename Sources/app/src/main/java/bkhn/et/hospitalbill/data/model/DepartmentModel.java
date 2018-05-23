@@ -2,13 +2,15 @@ package bkhn.et.hospitalbill.data.model;
 
 import android.content.Context;
 
+import java.io.Serializable;
+
 import bkhn.et.hospitalbill.R;
 
 /**
  * Created by PL_itto on 5/15/2018.
  */
 
-public class DepartmentModel {
+public class DepartmentModel implements Serializable{
     String id;
     String name;
 

@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by PL_itto on 5/15/2018.
  */
 
-public class ProblemModel implements Serializable{
+public class ProblemModel implements Serializable {
     String id;
     double cost;
     String name;
@@ -64,5 +64,16 @@ public class ProblemModel implements Serializable{
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public ProblemModel clone() {
+        ProblemModel model = new ProblemModel();
+        model.setId(getId());
+        model.setCost(getCost());
+        model.setName(getName());
+        model.setUnit(getUnit());
+        model.setDepartmentId(getDepartmentId());
+        model.setAmount(1);
+        return model;
     }
 }

@@ -15,6 +15,9 @@ public interface IBaseContract {
     }
 
     interface IBaseView {
+
+        long getCurrentTime();
+
         void showMessage(String message);
 
         void showMessage(@StringRes int resId);

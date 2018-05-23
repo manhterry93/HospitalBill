@@ -53,8 +53,12 @@
     <!--NewRecord-->
     <string name="new_record_doctor">Bác sĩ:</string>
     <string name="new_record_patient">Bệnh nhân:</string>
+    <string name="new_record_note">Chú thích:</string>
     <string name="new_record_problem">Bệnh án:</string>
     <string name="new_record_add"></string>
     <!--RecordProblem-->
     <string name="record_problem_amount">SL:</string>
+
+    <!--RecorDetail-->
+    <string name="record_detail_title">Chi tiết bệnh án</string>
 </resources>

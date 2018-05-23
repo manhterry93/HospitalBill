@@ -1,4 +1,4 @@
-package bkhn.et.hospitalbill.ui.doctor.setting.view;
+package bkhn.et.hospitalbill.ui.doctor.setting;
 
 import bkhn.et.hospitalbill.R;
 import bkhn.et.hospitalbill.base.BaseFragment;
