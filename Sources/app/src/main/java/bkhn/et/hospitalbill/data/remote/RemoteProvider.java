@@ -55,7 +55,7 @@ public class RemoteProvider implements IRemoteProvider {
 
     @Override
     public void logout() {
-
+        mFirebaseAuth.signOut();
     }
 
     @Override
@@ -112,7 +112,7 @@ public class RemoteProvider implements IRemoteProvider {
         }
 
         taskMap.put("data", taskData);
-        reference.updateChildren(taskMap,listener);
+        reference.updateChildren(taskMap, listener);
 
     }
 }

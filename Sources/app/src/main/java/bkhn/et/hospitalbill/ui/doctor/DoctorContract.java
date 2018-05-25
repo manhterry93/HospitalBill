@@ -66,13 +66,5 @@ public interface DoctorContract {
         void loadRecords();
     }
 
-    //  SettingActivity
-    interface ISettingView extends IBaseView {
-
-    }
-
-    interface ISettingPresenter<V extends ISettingView> extends IBasePresenter<V> {
-
-    }
 
 }

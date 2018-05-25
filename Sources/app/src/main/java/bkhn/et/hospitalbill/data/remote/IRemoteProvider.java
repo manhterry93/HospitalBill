@@ -27,4 +27,5 @@ public interface IRemoteProvider {
     void loadRecordList(ValueEventListener listener);
 
     void createRecord(RecordModel model, DatabaseReference.CompletionListener listener);
+
 }

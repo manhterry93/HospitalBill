@@ -21,6 +21,14 @@ public class AppConstants {
         public static final int TAB_SETTING = 3;
     }
 
+    public static final class Staff {
+        public static final int TAB_COUNT = 3;
+
+        public static final int TAB_USER = 0;
+        public static final int TAB_BILL = 1;
+        public static final int TAB_SETTING = 2;
+    }
+
     public static final class Main {
         public static final String EXTRA_JOB_TYPE = "extra_job_type";
     }

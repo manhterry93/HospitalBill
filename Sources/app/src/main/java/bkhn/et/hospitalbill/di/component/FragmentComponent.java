@@ -7,6 +7,7 @@ import bkhn.et.hospitalbill.ui.doctor.search.SearchFragment;
 import bkhn.et.hospitalbill.ui.doctor.user.DoctorUserFragment;
 import bkhn.et.hospitalbill.ui.login.LoginFragment;
 import bkhn.et.hospitalbill.ui.newrecord.NewRecordFragment;
+import bkhn.et.hospitalbill.ui.setting.SettingFragment;
 import bkhn.et.hospitalbill.ui.splash.SplashFragment;
 import dagger.Component;
 
@@ -27,4 +28,6 @@ public interface FragmentComponent {
     void inject(RecordFragment fragment);
 
     void inject(NewRecordFragment fragment);
+
+    void inject(SettingFragment fragment);
 }

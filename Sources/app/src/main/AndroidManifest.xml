@@ -32,18 +32,6 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ui.doctor.setting.SettingActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".ui.doctor.search.SearchActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".ui.doctor.record.RecordActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:name=".ui.newrecord.NewRecordActivity"
             android:screenOrientation="portrait">
         </activity>

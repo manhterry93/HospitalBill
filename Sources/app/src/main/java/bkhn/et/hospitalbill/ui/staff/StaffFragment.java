@@ -1,30 +1,34 @@
-package bkhn.et.hospitalbill.ui.doctor;
+package bkhn.et.hospitalbill.ui.staff;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import bkhn.et.hospitalbill.R;
 import bkhn.et.hospitalbill.base.BaseFragment;
-import bkhn.et.hospitalbill.ui.doctor.record.RecordFragment;
-import bkhn.et.hospitalbill.ui.doctor.search.SearchFragment;
 import bkhn.et.hospitalbill.ui.setting.SettingFragment;
-import bkhn.et.hospitalbill.ui.doctor.user.DoctorUserFragment;
-import bkhn.et.hospitalbill.utils.AppConstants.Doctor;
+import bkhn.et.hospitalbill.ui.staff.bill.BillFragment;
+import bkhn.et.hospitalbill.ui.staff.user.StaffUserFragment;
+import bkhn.et.hospitalbill.utils.AppConstants.Staff;
+import bkhn.et.hospitalbill.utils.Logg;
 
 import static bkhn.et.hospitalbill.utils.AppConstants.TAGG;
 
 /**
- * Created by PL_itto on 5/8/2018.
+ * Created by PL_itto on 5/24/2018.
  */
 
-public class DoctorFragment extends BaseFragment implements DoctorContract.IDoctorView {
-    private static final String TAG = TAGG + DoctorFragment.class.getSimpleName();
-
+public class StaffFragment extends BaseFragment {
+    private static final String TAG = TAGG + StaffFragment.class.getSimpleName();
     /* View */
     private ViewPager mContentPager;
     private BottomNavigationView mBottomView;
@@ -47,7 +51,7 @@ public class DoctorFragment extends BaseFragment implements DoctorContract.IDoct
         super.setupViews();
         mContentPager = mView.findViewById(R.id.content_pager);
         mBottomView = mView.findViewById(R.id.main_bottom_menu);
-        mBottomView.inflateMenu(R.menu.doctor_menu);
+        mBottomView.inflateMenu(R.menu.staff_menu);
         setupContentPager();
     }
 
@@ -66,13 +70,11 @@ public class DoctorFragment extends BaseFragment implements DoctorContract.IDoct
         @Override
         public Fragment getItem(int position) {
             switch (position) {
-                case Doctor.TAB_USER:
-                    return new DoctorUserFragment();
-                case Doctor.TAB_SEARCH:
-                    return new SearchFragment();
-                case Doctor.TAB_RECORD:
-                    return new RecordFragment();
-                case Doctor.TAB_SETTING:
+                case Staff.TAB_USER:
+                    return new StaffUserFragment();
+                case Staff.TAB_BILL:
+                    return new BillFragment();
+                case Staff.TAB_SETTING:
                     return new SettingFragment();
             }
             return null;
@@ -80,7 +82,7 @@ public class DoctorFragment extends BaseFragment implements DoctorContract.IDoct
 
         @Override
         public int getCount() {
-            return Doctor.TAB_COUNT;
+            return Staff.TAB_COUNT;
         }
     }
 
@@ -88,17 +90,14 @@ public class DoctorFragment extends BaseFragment implements DoctorContract.IDoct
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.doctor_user:
-                    mContentPager.setCurrentItem(Doctor.TAB_USER);
+                case R.id.staff_user:
+                    mContentPager.setCurrentItem(Staff.TAB_USER);
                     break;
-                case R.id.doctor_search:
-                    mContentPager.setCurrentItem(Doctor.TAB_SEARCH);
+                case R.id.staff_bill:
+                    mContentPager.setCurrentItem(Staff.TAB_BILL);
                     break;
-                case R.id.doctor_record:
-                    mContentPager.setCurrentItem(Doctor.TAB_RECORD);
-                    break;
-                case R.id.doctor_setting:
-                    mContentPager.setCurrentItem(Doctor.TAB_SETTING);
+                case R.id.staff_setting:
+                    mContentPager.setCurrentItem(Staff.TAB_SETTING);
                     break;
             }
             return true;

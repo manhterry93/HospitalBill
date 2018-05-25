@@ -61,4 +61,13 @@
 
     <!--RecorDetail-->
     <string name="record_detail_title">Chi tiết bệnh án</string>
+    
+    <!--Staff-->
+    <string name="staff_user">Tài khoản</string>
+    <string name="staff_bill">Hóa đơn</string>
+    <string name="staff_setting">Cài đặt</string>
+
+    <!--Setting-->
+    <string name="setting_header_version">Phiên bản</string>
+    <string name="setting_header_logout">Đăng xuất</string>
 </resources>

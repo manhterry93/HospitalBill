@@ -40,7 +40,7 @@ public class DataManager implements IDataManager {
 
     @Override
     public void logout() {
-
+        mRemoteProvider.logout();
     }
 
     @Override

@@ -62,7 +62,6 @@ public class SplashFragment extends BaseFragment implements ISplashView {
             intent = new Intent(mContext, MainActivity.class);
             intent.putExtra(AppConstants.Main.EXTRA_JOB_TYPE, model.getJobId());
             startActivity(intent);
-
         }
     }
 
