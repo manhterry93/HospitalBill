@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import bkhn.et.hospitalbill.data.model.BillModel;
 import bkhn.et.hospitalbill.data.model.RecordModel;
 
 /**
@@ -27,5 +28,13 @@ public interface IRemoteProvider {
     void loadRecordList(ValueEventListener listener);
 
     void createRecord(RecordModel model, DatabaseReference.CompletionListener listener);
+
+    void loadBillList(ValueEventListener listener);
+
+    void completeBill(BillModel model, DatabaseReference.CompletionListener listener);
+
+    void checkInsuranceInfo(String id, ValueEventListener listener);
+
+    void loadRecordDetail(String recordId, ValueEventListener listener);
 
 }

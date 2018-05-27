@@ -1,9 +1,5 @@
 package bkhn.et.hospitalbill.ui.newrecord;
 
-import android.support.annotation.NonNull;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -69,7 +65,6 @@ public class NewRecordPresenter<V extends INewRecordView> extends BasePresenter<
             String uid = user.getUid();
             mDataManager.getUserDetail(uid, new UserDetailListener());
         }
-
     }
 
     class UserDetailListener implements ValueEventListener {

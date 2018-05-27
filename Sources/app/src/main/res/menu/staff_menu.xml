@@ -4,16 +4,16 @@
     <item
         android:id="@+id/staff_user"
         android:icon="@drawable/ic_user"
-        android:title="@string/doctor_tab_user"
+        android:title="@string/staff_user"
         app:showAsAction="withText"/>
     <item
         android:id="@+id/staff_bill"
         android:icon="@drawable/ic_record"
-        android:title="@string/doctor_tab_user"
+        android:title="@string/staff_bill"
         app:showAsAction="withText"/>
     <item
         android:id="@+id/staff_setting"
         android:icon="@drawable/ic_setting"
-        android:title="@string/doctor_tab_setting"
+        android:title=  "@string/staff_setting"
         app:showAsAction="withText"/>
 </menu>

@@ -61,7 +61,7 @@
 
     <!--RecorDetail-->
     <string name="record_detail_title">Chi tiết bệnh án</string>
-    
+
     <!--Staff-->
     <string name="staff_user">Tài khoản</string>
     <string name="staff_bill">Hóa đơn</string>
@@ -70,4 +70,32 @@
     <!--Setting-->
     <string name="setting_header_version">Phiên bản</string>
     <string name="setting_header_logout">Đăng xuất</string>
+
+    <!--StaffBill-->
+    <string name="bill_search">Tìm kiếm</string>
+    <string name="bill_header">Danh sách hóa đơn:</string>
+    <string name="bill_header_id">Id</string>
+    <string name="bill_header_time">Thời gian</string>
+    <string name="bill_header_staff">Nhân viên</string>
+    <string name="bill_header_note">Chú thích</string>
+
+    <!--NewBill-->
+    <string name="newbill_header_staff">Nhân viên:</string>
+    <string name="newbill_header_note">Ghi chú:</string>
+    <string name="newbill_header_insurance">Bảo hiểm:</string>
+    <string name="newbill_header_insurance_id">Mã bảo hiểm:</string>
+    <string name="newbill_header_insurance_percent">Tỉ lệ giảm giá:</string>
+    <string name="newbill_header_insurance_check">Check</string>
+    <string name="newbill_header_record">Bệnh án:</string>
+    <string name="newbill_header_money_sum">Tổng cộng:</string>
+    <string name="newbill_record_confirm">Xác nhận</string>
+    <string name="newbill_problem_id">Id</string>
+    <string name="newbill_problem_name">Tên</string>
+    <string name="newbill_problem_count">Số lượng</string>
+    <string name="newbill_problem_price">Đơn giá</string>
+    <string name="newbill_insurance_available">Có</string>
+    <string name="newbill_record_empty">Mã bệnh án ko được để trống!</string>
+    <string name="newbill_insurance_not_available">Không</string>
+    <string name="newbill_done">Đã thanh toán!</string>
+    <string name="newbill_failed">Có vấn đề xảy ra khi thanh toán, hãy thử lại!</string>
 </resources>

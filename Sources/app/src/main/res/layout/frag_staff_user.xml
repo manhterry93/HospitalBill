@@ -1,7 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bgr_color"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/doctor_padding_horizontal"
+    android:paddingRight="@dimen/doctor_padding_horizontal">
+    <!--Avatar-->
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/doctor_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/doctor_avatar_size"
+            android:layout_height="@dimen/doctor_avatar_size"
+            android:src="@drawable/ic_avatar_default"/>
+
+        <LinearLayout
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/doctor_avatar"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/doctor_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:text="mai.shi"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/doctor_id_text_size"
+                />
+
+            <TextView
+                android:id="@+id/doctor_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:text="13/2/1992"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/doctor_birth_text_size"/>
+
+            <TextView
+                android:id="@+id/doctor_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:text="Shiraishi Mai"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/doctor_name_text_size"/>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+    <include layout="@layout/horizontal_line"/>
+
+    <!--Position-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Doctor.Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/doctor_header_position"/>
+
+        <TextView
+            android:id="@+id/job_name"
+            style="@style/Doctor.Content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trưởng cmn khoa"/>
+    </LinearLayout>
+
+    <include layout="@layout/horizontal_line"/>
+
+
+    <!--Session-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Doctor.Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/doctor_header_session"/>
+
+        <TextView
+            style="@style/Doctor.Content"
+            android:id="@+id/session"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12:00 - 23:00"/>
+    </LinearLayout>
+
+    <include layout="@layout/horizontal_line"/>
+
+    <!--Phone-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Doctor.Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/doctor_header_phone"/>
+
+        <TextView
+            android:id="@+id/phone"
+            style="@style/Doctor.Content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5678940"/>
+    </LinearLayout>
 
 </LinearLayout>

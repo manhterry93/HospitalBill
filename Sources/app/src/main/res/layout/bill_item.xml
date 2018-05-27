@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bill_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:elevation="2dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+
+    <!--ID-->
+    <TextView
+        android:id="@+id/bill_id"
+        style="@style/Record.ItemText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <include layout="@layout/vertical_line" />
+
+    <!--Time-->
+    <TextView
+        android:id="@+id/bill_time"
+        style="@style/Record.ItemText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5" />
+
+    <include layout="@layout/vertical_line" />
+
+    <!--Doctor-->
+    <TextView
+        android:id="@+id/bill_staff"
+        style="@style/Record.ItemText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5" />
+
+    <include layout="@layout/vertical_line" />
+
+    <!--Note-->
+    <TextView
+        android:id="@+id/bill_note"
+        style="@style/Record.ItemText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.1" />
+
+</LinearLayout>

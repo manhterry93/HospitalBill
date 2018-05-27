@@ -8,6 +8,7 @@ import com.google.firebase.database.ValueEventListener;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import bkhn.et.hospitalbill.data.model.BillModel;
 import bkhn.et.hospitalbill.data.model.RecordModel;
 import bkhn.et.hospitalbill.data.remote.IRemoteProvider;
 
@@ -60,6 +61,26 @@ public class DataManager implements IDataManager {
 
     @Override
     public void createRecord(RecordModel model, DatabaseReference.CompletionListener listener) {
-        mRemoteProvider.createRecord(model,listener);
+        mRemoteProvider.createRecord(model, listener);
+    }
+
+    @Override
+    public void loadBillList(ValueEventListener listener) {
+        mRemoteProvider.loadBillList(listener);
+    }
+
+    @Override
+    public void completeBill(BillModel model, DatabaseReference.CompletionListener listener) {
+        mRemoteProvider.completeBill(model, listener);
+    }
+
+    @Override
+    public void checkInsuranceInfo(String id, ValueEventListener listener) {
+        mRemoteProvider.checkInsuranceInfo(id,listener);
+    }
+
+    @Override
+    public void loadRecordDetail(String recordId, ValueEventListener listener) {
+        mRemoteProvider.loadRecordDetail(recordId,listener);
     }
 }

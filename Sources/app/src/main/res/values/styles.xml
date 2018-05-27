@@ -86,4 +86,20 @@
         <item name="android:textSize">@dimen/new_record_header_size</item>
         <item name="android:backgroundTint">@color/color_grey_light</item>
     </style>
+
+    <style name="NewBill.Header" parent="DefaultText">
+        <item name="android:textSize">13dp</item>
+    </style>
+
+    <style name="NewBill.Item" parent="DefaultText">
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="NewBill.ProblemHeader" parent="DefaultText">
+        <item name="android:textSize">13dp</item>
+    </style>
+
+    <style name="NewBill.ProblemItem" parent="DefaultText">
+        <item name="android:textSize">15dp</item>
+    </style>
 </resources>

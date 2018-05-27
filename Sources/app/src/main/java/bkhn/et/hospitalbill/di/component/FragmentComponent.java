@@ -6,9 +6,12 @@ import bkhn.et.hospitalbill.ui.doctor.record.RecordFragment;
 import bkhn.et.hospitalbill.ui.doctor.search.SearchFragment;
 import bkhn.et.hospitalbill.ui.doctor.user.DoctorUserFragment;
 import bkhn.et.hospitalbill.ui.login.LoginFragment;
+import bkhn.et.hospitalbill.ui.newbill.NewBillFragment;
 import bkhn.et.hospitalbill.ui.newrecord.NewRecordFragment;
 import bkhn.et.hospitalbill.ui.setting.SettingFragment;
 import bkhn.et.hospitalbill.ui.splash.SplashFragment;
+import bkhn.et.hospitalbill.ui.staff.bill.BillFragment;
+import bkhn.et.hospitalbill.ui.staff.user.StaffUserFragment;
 import dagger.Component;
 
 /**
@@ -30,4 +33,10 @@ public interface FragmentComponent {
     void inject(NewRecordFragment fragment);
 
     void inject(SettingFragment fragment);
+
+    void inject(BillFragment fragment);
+
+    void inject(StaffUserFragment fragment);
+
+    void inject(NewBillFragment fragment);
 }

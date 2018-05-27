@@ -8,11 +8,11 @@ import java.io.Serializable;
 
 public class ProblemModel implements Serializable {
     String id;
-    double cost;
+    double cost = 0;
     String name;
     String unit;
     String departmentId;
-    int amount;
+    int amount = 0;
 
     public String getId() {
         return id;
@@ -35,7 +35,8 @@ public class ProblemModel implements Serializable {
     }
 
     public String getCostString() {
-        return String.valueOf(getCost()) + " " + getUnit();
+//        return String.valueOf(getCost()) + " " + getUnit();
+        return String.format("%.2f", getCost()) + " " + getUnit();
     }
 
     public void setName(String name) {

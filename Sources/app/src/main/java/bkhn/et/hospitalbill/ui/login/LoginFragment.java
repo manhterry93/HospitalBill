@@ -74,7 +74,7 @@ public class LoginFragment extends BaseFragment implements ILoginView {
     @Override
     public void openMainScreen(int type) {
         Intent i = new Intent(mContext, MainActivity.class);
-        i.putExtra(AppConstants.Main.EXTRA_JOB_TYPE, type);
+        i.putExtra(AppConstants.Main.EXTRA_JOB_TYPE, (long)type);
         startActivity(i);
         mActivity.finish();
     }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_stroke_shape"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+
+    <TextView
+        style="@style/NewBill.ProblemHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/newbill_problem_id" />
+
+    <include layout="@layout/vertical_line" />
+
+    <TextView
+        style="@style/NewBill.ProblemHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/newbill_problem_name" />
+
+
+    <TextView
+        style="@style/NewBill.ProblemHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="@string/newbill_problem_count" />
+
+    <include layout="@layout/vertical_line" />
+
+    <TextView
+        style="@style/NewBill.ProblemHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/newbill_problem_price" />
+</LinearLayout>

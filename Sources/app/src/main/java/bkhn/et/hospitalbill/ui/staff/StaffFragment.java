@@ -58,8 +58,8 @@ public class StaffFragment extends BaseFragment {
     private void setupContentPager() {
         mPagerAdapter = new ContentPagerAdapter(getChildFragmentManager());
         mContentPager.setAdapter(mPagerAdapter);
+        mContentPager.setOffscreenPageLimit(4);
         mBottomView.setOnNavigationItemSelectedListener(mTabSelectListener);
-
     }
 
     class ContentPagerAdapter extends FragmentPagerAdapter {

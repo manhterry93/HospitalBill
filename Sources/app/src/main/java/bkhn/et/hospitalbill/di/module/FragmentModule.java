@@ -12,6 +12,8 @@ import bkhn.et.hospitalbill.ui.doctor.user.DoctorUserPresenter;
 import bkhn.et.hospitalbill.ui.login.ILoginContract;
 import bkhn.et.hospitalbill.ui.login.ILoginContract.ILoginView;
 import bkhn.et.hospitalbill.ui.login.LoginPresenter;
+import bkhn.et.hospitalbill.ui.newbill.INewBillContract;
+import bkhn.et.hospitalbill.ui.newbill.NewBillPresenter;
 import bkhn.et.hospitalbill.ui.newrecord.INewRecordContract;
 import bkhn.et.hospitalbill.ui.newrecord.NewRecordPresenter;
 import bkhn.et.hospitalbill.ui.setting.ISettingContract;
@@ -19,6 +21,9 @@ import bkhn.et.hospitalbill.ui.setting.SettingPresenter;
 import bkhn.et.hospitalbill.ui.splash.ISplashContract.ISplashPresenter;
 import bkhn.et.hospitalbill.ui.splash.ISplashContract.ISplashView;
 import bkhn.et.hospitalbill.ui.splash.SplashPresenter;
+import bkhn.et.hospitalbill.ui.staff.IStaffContract;
+import bkhn.et.hospitalbill.ui.staff.bill.BillPresenter;
+import bkhn.et.hospitalbill.ui.staff.user.StaffUserPresenter;
 import dagger.Module;
 import dagger.Provides;
 
@@ -66,6 +71,21 @@ public class FragmentModule {
 
     @Provides
     ISettingContract.ISettingPresenter<ISettingContract.ISettingView> provideSettingPresenter(SettingPresenter<ISettingContract.ISettingView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    IStaffContract.IStaffUserPresenter<IStaffContract.IStaffUserView> provideStaffUserPresenter(StaffUserPresenter<IStaffContract.IStaffUserView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    IStaffContract.IBillPresenter<IStaffContract.IBillView> provideBillPresenter(BillPresenter<IStaffContract.IBillView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    INewBillContract.INewBillPresenter<INewBillContract.INewBillView> provideNewBillPresenter(NewBillPresenter<INewBillContract.INewBillView> presenter) {
         return presenter;
     }
 }
