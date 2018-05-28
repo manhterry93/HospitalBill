@@ -110,7 +110,6 @@ public class RemoteProvider implements IRemoteProvider {
 
         taskMap.put("data", taskData);
         reference.updateChildren(taskMap, listener);
-
     }
 
     @Override
@@ -133,6 +132,10 @@ public class RemoteProvider implements IRemoteProvider {
         taskMap.put("staffName", model.getStaffName());
         taskMap.put("time", model.getTime());
         taskMap.put("note", model.getNote());
+        taskMap.put("useInsurance",model.isUseInsurance());
+        taskMap.put("insuranceId",model.getInsuranceId());
+        taskMap.put("totalCost",model.getTotalCost());
+        taskMap.put("insuranceDiscount",model.getInsuranceDiscount());
         reference = reference.child(newKey);
         reference.updateChildren(taskMap, listener);
     }

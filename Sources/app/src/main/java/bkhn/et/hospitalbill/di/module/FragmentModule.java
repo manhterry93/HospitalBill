@@ -1,6 +1,8 @@
 package bkhn.et.hospitalbill.di.module;
 
 import bkhn.et.hospitalbill.base.BaseFragment;
+import bkhn.et.hospitalbill.ui.billdetail.BillDetailPresenter;
+import bkhn.et.hospitalbill.ui.billdetail.IBillDetailContract;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract.IDoctorUserPresenter;
 import bkhn.et.hospitalbill.ui.doctor.DoctorContract.IDoctorUserView;
@@ -86,6 +88,11 @@ public class FragmentModule {
 
     @Provides
     INewBillContract.INewBillPresenter<INewBillContract.INewBillView> provideNewBillPresenter(NewBillPresenter<INewBillContract.INewBillView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    IBillDetailContract.IBillDetailPresenter<IBillDetailContract.IBillDetailView> provideBillDetailPresenter(BillDetailPresenter<IBillDetailContract.IBillDetailView> presenter) {
         return presenter;
     }
 }

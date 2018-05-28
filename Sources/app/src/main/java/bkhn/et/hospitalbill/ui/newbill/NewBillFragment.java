@@ -1,5 +1,7 @@
 package bkhn.et.hospitalbill.ui.newbill;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,6 +32,8 @@ import bkhn.et.hospitalbill.data.model.BillModel;
 import bkhn.et.hospitalbill.data.model.InsuranceItem;
 import bkhn.et.hospitalbill.data.model.ProblemModel;
 import bkhn.et.hospitalbill.data.model.UserModel;
+import bkhn.et.hospitalbill.ui.recordscan.ScanActivity;
+import bkhn.et.hospitalbill.utils.AppConstants;
 import bkhn.et.hospitalbill.utils.Logg;
 
 import static bkhn.et.hospitalbill.utils.AppConstants.TAGG;
@@ -41,7 +45,7 @@ import static bkhn.et.hospitalbill.utils.AppUtils.isNotNull;
 
 public class NewBillFragment extends BaseFragment implements INewBillContract.INewBillView {
     private static final String TAG = TAGG + NewBillFragment.class.getSimpleName();
-
+    private static final int RECORD_SCAN_REQUEST_CODE = 1000;
     /* Views */
     Toolbar mToolbar;
     TextView mStaffName;
@@ -65,6 +69,7 @@ public class NewBillFragment extends BaseFragment implements INewBillContract.IN
     UserModel mUserModel;
     InsuranceItem mInsuranceItem;
     private boolean mUseInsurance = false;
+    private double mTotalCost = 0;
 
     @Override
     protected void initInject() {
@@ -126,6 +131,12 @@ public class NewBillFragment extends BaseFragment implements INewBillContract.IN
                 requestLoadRecord();
             }
         });
+        mQrBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestScanRecordId();
+            }
+        });
     }
 
     private void setupInsuranceInfoLayout() {
@@ -184,15 +195,18 @@ public class NewBillFragment extends BaseFragment implements INewBillContract.IN
             return;
         BillModel model = new BillModel();
         model.setUseInsurance(mUseInsurance);
-        if (mUseInsurance)
+        if (mUseInsurance) {
             model.setInsuranceId(mInsuranceItem.getId());
-        else model.setInsuranceId(null);
+            model.setInsuranceDiscount(mInsuranceItem.getPercent());
+        } else model.setInsuranceId(null);
         model.setStaffId(mUserModel.getId());
         model.setNote(mNote.getText().toString());
         model.setPaid(true);
         model.setTime(Calendar.getInstance().getTime().getTime());
         model.setStaffName(mUserModel.getName());
         model.setRecordId(mRecordInput.getText().toString());
+        model.setTotalCost(mTotalCost);
+
         mPresenter.completeBill(model);
     }
 
@@ -259,17 +273,28 @@ public class NewBillFragment extends BaseFragment implements INewBillContract.IN
         calculateMoneySum();
     }
 
+    @Override
+    public void requestScanRecordId() {
+        Intent intent = new Intent(mContext, ScanActivity.class);
+        startActivityForResult(intent, RECORD_SCAN_REQUEST_CODE);
+    }
+
+    @Override
+    public void onRecordIdScanResult(String id) {
+        mRecordInput.setText(id);
+    }
+
     private void calculateMoneySum() {
         List<ProblemModel> problemList = mAdapter.getData();
-        double totalCost = 0;
+        mTotalCost = 0;
         for (ProblemModel model : problemList) {
-            totalCost += model.getCost() * model.getAmount();
+            mTotalCost += model.getCost() * model.getAmount();
         }
         if (mUseInsurance && isNotNull(mInsuranceItem)) {
-            totalCost = totalCost * (mInsuranceItem.getPercent() / 100);
+            mTotalCost = mTotalCost * (mInsuranceItem.getPercent() / 100);
         }
 
-        mMoneySum.setText(String.format("%.2f", totalCost));
+        mMoneySum.setText(String.format("%.2f", mTotalCost));
     }
 
     class ProblemAdapter extends RecyclerView.Adapter<ProblemAdapter.ProblemHolder> {
@@ -329,6 +354,21 @@ public class NewBillFragment extends BaseFragment implements INewBillContract.IN
                 mName.setText(model.getName());
                 mCount.setText(String.valueOf(model.getAmount()));
                 mCost.setText(model.getCostString());
+            }
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case RECORD_SCAN_REQUEST_CODE:
+                    if (isNotNull(data)) {
+                        String recordId = data.getStringExtra(AppConstants.Scanner.CODE_RESULT);
+                        onRecordIdScanResult(recordId);
+                        break;
+                    }
             }
         }
     }

@@ -43,7 +43,13 @@ public class NewRecordPresenter<V extends INewRecordView> extends BasePresenter<
         mDataManager.createRecord(model, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                mView.onAddRecordResult(true);
+                if (isNotNull(databaseReference)) {
+                    Logg.d(TAG, databaseReference.getKey().toString());
+                    mView.onAddRecordResult(true, databaseReference.getKey());
+                } else {
+                    mView.onAddRecordResult(false, null);
+                }
+
             }
         });
     }

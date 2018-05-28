@@ -1,11 +1,14 @@
 package bkhn.et.hospitalbill.base;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +35,9 @@ public abstract class BaseFragment extends Fragment implements IBaseContract.IBa
     protected View mView;
     protected BaseActivity mActivity;
     private FragmentComponent mFragmentComponent;
+    private IBaseContract.IActionCallback mPermissionCallbacl = null;
+    private boolean sMOSUP = Build.VERSION.SDK_INT >= 23;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,15 +59,16 @@ public abstract class BaseFragment extends Fragment implements IBaseContract.IBa
         Toast.makeText(mContext, getResources().getString(resId), Toast.LENGTH_SHORT).show();
     }
 
-    protected FragmentComponent getFragmentComponent(){
-        if(!isNotNull(mFragmentComponent)){
-            mFragmentComponent= DaggerFragmentComponent.builder()
+    protected FragmentComponent getFragmentComponent() {
+        if (!isNotNull(mFragmentComponent)) {
+            mFragmentComponent = DaggerFragmentComponent.builder()
                     .fragmentModule(new FragmentModule(this))
-                    .appComponent(((MainApp)mActivity.getApplication()).getAppComponent())
+                    .appComponent(((MainApp) mActivity.getApplication()).getAppComponent())
                     .build();
         }
         return mFragmentComponent;
     }
+
     @Override
     public void showMessage(String message) {
         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
@@ -94,4 +101,5 @@ public abstract class BaseFragment extends Fragment implements IBaseContract.IBa
     public long getCurrentTime() {
         return Calendar.getInstance().getTime().getTime();
     }
+
 }

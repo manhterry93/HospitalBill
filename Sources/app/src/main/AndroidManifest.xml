@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.CAMERA" />
     <application
         android:name=".MainApp"
         android:allowBackup="true"
@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.splash.SplashActivity"
+            android:screenOrientation="portrait"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,15 +26,28 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.main.MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.newrecord.NewRecordActivity"
+            android:label="@string/new_record_label"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.recorddetail.RecordDetailActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".ui.newbill.NewBillActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/newbill_label" />
+        <activity
+            android:name=".ui.recordscan.ScanActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/record_scan_label" />
+        <activity android:name=".ui.billdetail.BillDetailActivity"
+            android:label="@string/bill_detail_label"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".ui.recorddetail.RecordDetailActivity"></activity>
-        <activity android:name=".ui.newbill.NewBillActivity"></activity>
     </application>
 
 </manifest>

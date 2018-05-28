@@ -66,4 +66,12 @@ public class AppConstants {
         public static final String EXTRA_PROBLEM_RETURN = "extra_problem_return";
         public static final String EXTRA_RECORD = "extra_record";
     }
+
+    public static final class Scanner {
+        public static final String CODE_RESULT = "code_result";
+    }
+
+    public static final class BillDetail {
+        public static final String EXTRA_BILL_DATA = "extra_bill_data";
+    }
 }

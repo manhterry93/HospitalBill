@@ -42,6 +42,12 @@ dependencies {
     compile 'com.google.firebase:firebase-database:10.0.1'
     compile 'com.google.firebase:firebase-auth:10.0.1'
     compile 'com.firebase:firebase-client-android:2.3.1'
+
+    // ZbarScanner
+    compile 'me.dm7.barcodescanner:zbar:1.9.8'
+
+    //    QRGen
+    compile 'com.github.kenglxn.QRGen:android:2.4.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

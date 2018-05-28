@@ -63,7 +63,7 @@ public class NewBillPresenter<V extends INewBillContract.INewBillView> extends B
 
     @Override
     public void loadRecord(String recordId) {
-        Logg.d(TAG,"loadRecord: "+recordId);
+        Logg.d(TAG, "loadRecord: " + recordId);
         mDataManager.loadRecordDetail(recordId, new RecordDetailListener());
     }
 
@@ -80,7 +80,7 @@ public class NewBillPresenter<V extends INewBillContract.INewBillView> extends B
                     data.add(model);
                 }
                 mView.updateProblemList(data);
-            }else{
+            } else {
 
             }
         }

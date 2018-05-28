@@ -23,9 +23,11 @@ import javax.inject.Inject;
 import bkhn.et.hospitalbill.R;
 import bkhn.et.hospitalbill.base.BaseFragment;
 import bkhn.et.hospitalbill.data.model.BillModel;
+import bkhn.et.hospitalbill.ui.billdetail.BillDetailActivity;
 import bkhn.et.hospitalbill.ui.newbill.NewBillActivity;
 import bkhn.et.hospitalbill.ui.newbill.NewBillFragment;
 import bkhn.et.hospitalbill.ui.staff.IStaffContract;
+import bkhn.et.hospitalbill.utils.AppConstants;
 import bkhn.et.hospitalbill.utils.Logg;
 
 import static bkhn.et.hospitalbill.utils.AppConstants.TAGG;
@@ -119,7 +121,9 @@ public class BillFragment extends BaseFragment implements IStaffContract.IBillVi
 
     @Override
     public void openBillDetail(BillModel model) {
-
+        Intent intent = new Intent(mContext, BillDetailActivity.class);
+        intent.putExtra(AppConstants.BillDetail.EXTRA_BILL_DATA, model);
+        startActivity(intent);
     }
 
     void requestFilter() {
@@ -218,7 +222,7 @@ public class BillFragment extends BaseFragment implements IStaffContract.IBillVi
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.bill_root_view) {
-
+                    openBillDetail(getItemAt(getAdapterPosition()));
                 }
             }
         }

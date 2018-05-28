@@ -28,7 +28,7 @@ public interface INewRecordContract {
 
         void updateDoctorInfo(UserModel model);
 
-        void onAddRecordResult(boolean success);
+        void onAddRecordResult(boolean success, String recordId);
     }
 
     interface INewRecordPresenter<V extends INewRecordView> extends IBaseContract.IBasePresenter<V> {

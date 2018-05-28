@@ -51,11 +51,15 @@
     <string name="record_header_note">Chú thích</string>
 
     <!--NewRecord-->
+    <string name="new_record_label">Bệnh ánh mới</string>
     <string name="new_record_doctor">Bác sĩ:</string>
     <string name="new_record_patient">Bệnh nhân:</string>
     <string name="new_record_note">Chú thích:</string>
     <string name="new_record_problem">Bệnh án:</string>
     <string name="new_record_add"></string>
+
+    <!--RecordQR-->
+    <string name="newcord_qr_title">Sử dụng mã này tại thu ngân để thanh toán</string>
     <!--RecordProblem-->
     <string name="record_problem_amount">SL:</string>
 
@@ -80,6 +84,7 @@
     <string name="bill_header_note">Chú thích</string>
 
     <!--NewBill-->
+    <string name="newbill_label">Hóa đơn mới</string>
     <string name="newbill_header_staff">Nhân viên:</string>
     <string name="newbill_header_note">Ghi chú:</string>
     <string name="newbill_header_insurance">Bảo hiểm:</string>
@@ -98,4 +103,10 @@
     <string name="newbill_insurance_not_available">Không</string>
     <string name="newbill_done">Đã thanh toán!</string>
     <string name="newbill_failed">Có vấn đề xảy ra khi thanh toán, hãy thử lại!</string>
+
+    <!--Record Scan-->
+    <string name="record_scan_label">Quét mã bệnh án</string>
+
+    <!--BillDetail-->
+    <string name="bill_detail_label">Chi tiết hóa đơn</string>
 </resources>

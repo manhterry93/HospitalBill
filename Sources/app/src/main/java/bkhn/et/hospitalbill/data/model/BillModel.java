@@ -1,12 +1,14 @@
 package bkhn.et.hospitalbill.data.model;
 
+import java.io.Serializable;
+
 import bkhn.et.hospitalbill.utils.AppUtils;
 
 /**
  * Created by PL_itto on 5/27/2018.
  */
 
-public class BillModel {
+public class BillModel implements Serializable {
     String id;
     String recordId;
     String staffId;
@@ -16,6 +18,8 @@ public class BillModel {
     String note;
     String insuranceId;
     boolean useInsurance = false;
+    double totalCost = 0;
+    double insuranceDiscount = 0;
 
     public String getId() {
         return id;
@@ -92,5 +96,21 @@ public class BillModel {
 
     public void setUseInsurance(boolean useInsurance) {
         this.useInsurance = useInsurance;
+    }
+
+    public double getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public double getInsuranceDiscount() {
+        return insuranceDiscount;
+    }
+
+    public void setInsuranceDiscount(double insuranceDiscount) {
+        this.insuranceDiscount = insuranceDiscount;
     }
 }

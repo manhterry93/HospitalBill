@@ -195,8 +195,12 @@ public class NewRecordFragment extends BaseFragment implements INewRecordContrac
     }
 
     @Override
-    public void onAddRecordResult(boolean success) {
-        mActivity.finish();
+    public void onAddRecordResult(boolean success, String recordId) {
+        if (success) {
+            RecordQRDialog dialog = new RecordQRDialog(recordId);
+            dialog.setTargetFragment(this, 0);
+            dialog.show(getFragmentManager(), null);
+        }
     }
 
     class ProblemListAdapter extends RecyclerView.Adapter<ProblemListAdapter.ProblemHolder> {

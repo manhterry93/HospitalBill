@@ -29,6 +29,10 @@ public interface INewBillContract {
         void requestLoadRecord();
 
         void updateProblemList(List<ProblemModel> data);
+
+        void requestScanRecordId();
+
+        void onRecordIdScanResult(String id);
     }
 
     interface INewBillPresenter<V extends INewBillView> extends IBaseContract.IBasePresenter<V> {

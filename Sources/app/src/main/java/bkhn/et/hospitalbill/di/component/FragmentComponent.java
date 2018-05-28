@@ -2,6 +2,7 @@ package bkhn.et.hospitalbill.di.component;
 
 import bkhn.et.hospitalbill.di.PerActivity;
 import bkhn.et.hospitalbill.di.module.FragmentModule;
+import bkhn.et.hospitalbill.ui.billdetail.BillDetailFragment;
 import bkhn.et.hospitalbill.ui.doctor.record.RecordFragment;
 import bkhn.et.hospitalbill.ui.doctor.search.SearchFragment;
 import bkhn.et.hospitalbill.ui.doctor.user.DoctorUserFragment;
@@ -39,4 +40,6 @@ public interface FragmentComponent {
     void inject(StaffUserFragment fragment);
 
     void inject(NewBillFragment fragment);
+
+    void inject(BillDetailFragment fragment);
 }
